@@ -14,9 +14,8 @@ This project demonstrates how to read temperature and humidity data from a DHT11
 ---
 
 ## Introduction
-DHT sensors (DHT11 or DHT22) are popular for measuring **temperature** and **humidity**. This project guides you through connecting one of these sensors to a Raspberry Pi, reading the data in Python, and printing the values to the terminal.
-
----
+DHT sensors (DHT11 or DHT22) are popular for measuring **temperature** and **humidity**. 
+This project guides you through connecting one of these sensors to a Raspberry Pi, reading the data in Python, and printing the values to the terminal.
 
 ## Hardware Requirements
 - **Raspberry Pi** (any model with GPIO pins; Pi 3, Pi 4, or Pi Zero, etc.)
@@ -25,7 +24,6 @@ DHT sensors (DHT11 or DHT22) are popular for measuring **temperature** and **hum
 - **Breadboard** and **jumper wires** (for prototyping)
 - **Power Supply** for Raspberry Pi (5V, 2-3A recommended)
 
----
 
 ## Wiring the Sensor
 Below is the typical wiring for a **DHT22** or **DHT11**. Be sure to consult your sensor’s pinout.
@@ -46,7 +44,6 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
 > **Important:**  
 > The Raspberry Pi uses **3.3V logic**. Applying 5V to GPIO pins can damage the Pi.
 
----
 
 ## Setting Up Raspberry Pi
 1. **Prepare microSD Card**  
@@ -62,7 +59,7 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
    sudo apt-get upgrade
    ```
 
-##Installing Required Python Libraries
+## Installing Required Python Libraries
 1. **Create a Virtual Environment**
    - We’ll install the DHT library in a virtual environment. Creating a virtual environment will isolate the Python libraries we’re using, in this case, the DHT library, from the rest of the system.
    We’ll create our virtual environment on a directory on our Desktop. Enter the following command on a Terminal window to move to the Desktop:
@@ -99,7 +96,7 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
    ```
    After a few seconds, the library will be installed (ignore any yellow warnings about deprecated packages).
 
-##Project Code
+## Project Code
 **Python Code for Raspberry Pi DHT11**
    The following script gets temperature and humidity from the DHT sensors and prints the readings on the Python shell. 
    Create a new Python file with a name of your choice, for example, ```dht11_write.py```, and copy the following code.
@@ -155,7 +152,7 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
 		time.sleep(3.0)
    ```
 
-##Running the Script##
+## Running the Script
    Save your Python file on the same folder of your virtual environment (in our case ```Desktop/dht_test```). 
    Then run it on your Raspberry Pi. Run the following command (make sure you are on the correct path—the same folder of the virtual environment):
    ```
