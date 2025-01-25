@@ -3,10 +3,14 @@ import board
 import adafruit_dht
 import csv
 
+print("Libraries imported successfully!")
+
 # Sensor data pin is connected to GPIO 4
 # sensor = adafruit_dht.DHT22(board.D4)
 # Uncomment for DHT11
 sensor = adafruit_dht.DHT11(board.D4)
+
+print("DHT sensor initialized.")
 
 # CSV file to save data
 csv_file = "./sensor_data.csv"
@@ -17,6 +21,8 @@ with open(csv_file, mode='w', newline='') as file:
     writer.writerow(["Time", "Temperature (°C)", "Temperature (°F)", "Humidity (%)"])
 
 print(f"Data will be saved to {csv_file}")
+
+print("Starting data collection. Press Stop or interrupt the kernel to exit.")
 
 while True:
     try:
