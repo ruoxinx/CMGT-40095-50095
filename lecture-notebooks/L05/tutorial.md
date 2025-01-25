@@ -8,7 +8,6 @@ This project demonstrates how to read temperature and humidity data from a DHT11
 3. [Wiring the Sensor](#wiring-the-sensor)
 4. [Setting Up Raspberry Pi](#setting-up-raspberry-pi)
 5. [Installing Required Python Libraries](#installing-required-python-libraries)
-6. [Installing the Adafruit_CircuitPython_DHT Library](#installing-the-Adafruit_CircuitPython_DHT-Library)
 7. [Project Code](#project-code)
 8. [Running the Script](#running-the-script)
 
@@ -63,7 +62,8 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
    sudo apt-get upgrade
    ```
 
-5. **Create a Virtual Environment**
+##Installing Required Python Libraries##
+1. **Create a Virtual Environment**
    - We’ll install the DHT library in a virtual environment. Creating a virtual environment will isolate the Python libraries we’re using, in this case, the DHT library, from the rest of the system.
    We’ll create our virtual environment on a directory on our Desktop. Enter the following command on a Terminal window to move to the Desktop:
    ```
@@ -91,7 +91,7 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
    source pienv/bin/activate
    ```
 
-6. **Installing the Adafruit_CircuitPython_DHT Library**
+2. **Installing the Adafruit_CircuitPython_DHT Library**
    - Installing the Adafruit_CircuitPython_DHT Library
    Now that we are in our virtual environment, we can install the library. Run the following command:
    ```
@@ -99,8 +99,8 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
    ```
    After a few seconds, the library will be installed (ignore any yellow warnings about deprecated packages).
 
-
-7. **Python Code for Raspberry Pi DHT11**
+##Project Code##
+**Python Code for Raspberry Pi DHT11**
    The following script gets temperature and humidity from the DHT sensors and prints the readings on the Python shell. 
    Create a new Python file with a name of your choice, for example, ```dht11_write.py```, and copy the following code.
    ```
@@ -155,7 +155,7 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
 		time.sleep(3.0)
    ```
 
-8. Running the Script
+##Running the Script##
    Save your Python file on the same folder of your virtual environment (in our case ```Desktop/dht_test```). 
    Then run it on your Raspberry Pi. Run the following command (make sure you are on the correct path—the same folder of the virtual environment):
    ```
