@@ -62,7 +62,7 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
    sudo apt-get upgrade
    ```
 
-##Installing Required Python Libraries##
+##Installing Required Python Libraries
 1. **Create a Virtual Environment**
    - We’ll install the DHT library in a virtual environment. Creating a virtual environment will isolate the Python libraries we’re using, in this case, the DHT library, from the rest of the system.
    We’ll create our virtual environment on a directory on our Desktop. Enter the following command on a Terminal window to move to the Desktop:
@@ -99,7 +99,7 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
    ```
    After a few seconds, the library will be installed (ignore any yellow warnings about deprecated packages).
 
-##Project Code##
+##Project Code
 **Python Code for Raspberry Pi DHT11**
    The following script gets temperature and humidity from the DHT sensors and prints the readings on the Python shell. 
    Create a new Python file with a name of your choice, for example, ```dht11_write.py```, and copy the following code.
