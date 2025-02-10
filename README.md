@@ -1,7 +1,7 @@
 # Course-Advanced-Tech-Applications-in-Construction
 
 <p align="center">
-  <img src="course.webp" alt="Course Icon" width="400" />
+  <img src="course.webp" alt="Course Icon" width="200" />
 </p>
 
 **Instructor**: Ruoxin Xiong, Ph.D., Assistant Professor, Construction Management, College of Architecture and Environmental Design, Kent State University
