@@ -1,12 +1,14 @@
 # Course-Advanced-Tech-Applications-in-Construction
 
-<p align="center">
-  <img src="course.webp" alt="Course Icon" width="200" style="float: left; margin-right: 20px;" />
-  <strong>Kent State University</strong><br/>
-  <strong>College of Architecture and Environmental Design</strong><br/>
-  <strong>Construction Management Program</strong><br/>
-  <strong>Instructor: Ruoxin Xiong, Ph.D., Assistant Professor </strong>
-</p>
+<div style="text-align: center; display: flex; align-items: center; justify-content: center;">
+  <img src="course.webp" alt="Course Icon" width="150" style="margin-right: 20px;" />
+  <div>
+    <strong>Kent State University</strong><br/>
+    <strong>CAED College</strong><br/>
+    <strong>Construction Management Program</strong><br/>
+    <strong>Instructor: Ruoxin Xiong</strong>
+  </div>
+</div>
 
 Welcome to the **CMGT 40095/50095: Advanced Technology Applications in Construction** repository! This guide provides essential information on how to navigate the repository, explore student project displays, and understand copyright information.
 
