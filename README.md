@@ -1,10 +1,14 @@
 # Course-Advanced-Tech-Applications-in-Construction
 
 <p align="center">
-  <img src="course.webp" alt="Course Icon" width="400" />
+  <img src="course.webp" alt="Course Icon" width="200" style="float: left; margin-right: 20px;" />
+  <strong>Kent State University</strong><br/>
+  <strong>College of Architecture and Environmental Design</strong><br/>
+  <strong>Construction Management Program</strong><br/>
+  <strong>Instructor: Ruoxin Xiong, Ph.D., Assistant Professor </strong>
 </p>
 
-Welcome to the **Advanced Technology Applications in Construction** repository! This guide provides essential information on how to navigate the repository, explore student project displays, and understand copyright information.
+Welcome to the **CMGT 40095/50095: Advanced Technology Applications in Construction** repository! This guide provides essential information on how to navigate the repository, explore student project displays, and understand copyright information.
 
 ## 📖 Basic Information
 This repository contains course materials, including interactive Jupyter Notebooks, code snippets, and project documentation, designed to introduce and explore advanced technologies in construction.
