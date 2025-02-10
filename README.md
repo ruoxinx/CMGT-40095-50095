@@ -1,58 +1,47 @@
 # Course-Advanced-Tech-Applications-in-Construction
 
-## Viewing and Running the Notebooks Using Google Colab
+# ![Course Icon](course.webp)
 
-You can access and run all course notebooks directly in your web browser without needing to install any software, thanks to [Google Colab](https://colab.research.google.com/). Google Colab provides a robust notebook environment that supports Python code execution and is accessible from anywhere.
+Welcome to the **Advanced Technology Applications in Construction** repository! This guide provides essential information on how to navigate the repository, explore student project displays, and understand copyright information.
 
-### How to Use Google Colab:
+---
 
-1. **Open Google Colab**:
-   - Visit [Google Colab](https://colab.research.google.com/) to start.
+## 📖 Basic Information
+This repository contains course materials, including interactive Jupyter Notebooks, code snippets, and project documentation, designed to introduce and explore advanced technologies in construction.
 
-2. **Access the Notebooks**:
-   - In Google Colab, navigate to the 'File' menu and select 'Open notebook'.
-   - Switch to the 'GitHub' tab in the dialog that appears.
-   - Enter the course repository URL: `https://github.com/ruoxinx/Course-Advanced-Tech-Applications-in-Construction` and press Enter.
-   - Browse through the list of notebooks and select the one you wish to open.
+### Key Features:
+- Hands-on Jupyter Notebooks for practical learning.
+- Sample datasets for construction-related analysis.
+- Student project showcases and case studies.
+- Guidelines for running and modifying the code.
 
-3. **Run the Notebook**:
-   - After selecting a notebook, it will open in a new tab. You can read the content and run the code cells sequentially by clicking on each and pressing `Shift + Enter` or using the play button in the toolbar.
+For a step-by-step guide on setting up and using the materials, check the [Usage Guidelines](docs/guideline.md).
 
-For a comprehensive introduction to Google Colab and Jupyter Notebooks, please refer to this detailed [tutorial](https://colab.research.google.com/notebooks/intro.ipynb).
+---
 
-## Installing and Using Notebooks Locally with Jupyter
+## 🗺️ Navigation
+To help you locate and utilize resources efficiently, the repository is structured as follows:
 
-If you prefer to work with the notebooks on your local machine, you can install Jupyter. For a more enhanced experience, you may opt for JupyterLab, which offers a full-fledged integrated development environment (IDE).
+### 🔹 **Main Folders:**
+- **`lectures/`** – Contains all interactive Jupyter Notebooks.
+- **`datasets/`** – Sample datasets used in the notebooks.
+- **`projects/`** – Student project documentation and files.
+- **`docs/`** – Additional guides and references. For a detailed guide on how to use the materials, please refer to [docs/guideline.md](docs/guideline.md).
 
-### Installation Guide:
+---
 
-1. **Install Jupyter or JupyterLab**:
-   - Visit the [Jupyter official website](https://jupyter.org/install) for instructions on how to install Jupyter Notebook or JupyterLab on your system.
+## 🎓 Student Project Display
+This repository highlights innovative student projects demonstrating the application of advanced construction technologies. You can find them under the **`projects/`** folder.
 
-2. **Download the Notebooks**:
-   - Clone or download the repository from GitHub to your local machine using the following command:
-     ```
-     git clone https://github.com/ruoxinx/Course-Advanced-Tech-Applications-in-Construction.git
-     ```
-   - Navigate to the repository directory on your computer.
+### ✨ Featured Projects:
+- **Project 1:** Evaluate and Enhance Thermal Comfort for Occupants in the CAED Building (stay tuned!)
 
-3. **Launch Jupyter**:
-   - Open a command terminal and run the following command to start Jupyter Notebook or JupyterLab:
-     ```
-     jupyter notebook
-     ```
-     or
-     ```
-     jupyter lab
-     ```
-   - Jupyter will open in your default web browser.
+---
 
-4. **Open and Run Notebooks**:
-   - From the Jupyter interface, navigate to the folder containing the downloaded notebooks.
-   - Click on a notebook file to open it and start interacting with the contents.
+## 📜 Copyright & License
 
-These instructions will help you effectively use and manage the course materials, whether online through Google Colab or locally via Jupyter.
+© 2025 Ruoxin Xiong. All rights reserved.
 
+For inquiries about reuse, adaptations, or collaborations, please open an issue or submit a request or contact me (rxiong3@kent.edu).
 
-
-
+📢 **Enjoy exploring and contributing to the field of construction technology!**
