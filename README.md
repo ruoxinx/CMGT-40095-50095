@@ -1,12 +1,12 @@
 # Course-Advanced-Tech-Applications-in-Construction
 
-<div style="text-align: center; display: flex; align-items: center; justify-content: center;">
-  <img src="course.webp" alt="Course Icon" width="150" style="margin-right: 20px;" />
+<div style="display: flex; align-items: center; justify-content: center; gap: 20px; text-align: left;">
+  <img src="course.webp" alt="Course Icon" width="150" />
   <div>
     <strong>Kent State University</strong><br/>
-    <strong>CAED College</strong><br/>
+    <strong>College of Architecture and Environmental Design</strong><br/>
     <strong>Construction Management Program</strong><br/>
-    <strong>Instructor: Ruoxin Xiong</strong>
+    <strong>Instructor: Ruoxin Xiong,Ph.D., Assistant Professor</strong>
   </div>
 </div>
 
