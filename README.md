@@ -27,7 +27,7 @@ To help you locate and utilize resources efficiently, the repository is structur
 - **[`docs/`](./docs)** – Additional guides and references. For a detailed guide on how to use the materials, please refer to [docs/guidelines.md](docs/guideline.md).
 
 
-## 🎓 Student Project Display
+## 🎓 Project Display
 This repository highlights innovative student projects demonstrating the application of advanced construction technologies. You can find them under the **`projects/`** folder.
 
 ### ✨ Featured Projects:
