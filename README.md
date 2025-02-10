@@ -1,6 +1,6 @@
 # Course-Advanced-Tech-Applications-in-Construction
 
-# ![Course Icon](course.webp)
+<img src="course.webp" alt="Course Icon" width="100" />
 
 Welcome to the **Advanced Technology Applications in Construction** repository! This guide provides essential information on how to navigate the repository, explore student project displays, and understand copyright information.
 
@@ -26,7 +26,7 @@ To help you locate and utilize resources efficiently, the repository is structur
 - **`lectures/`** – Contains all interactive Jupyter Notebooks.
 - **`datasets/`** – Sample datasets used in the notebooks.
 - **`projects/`** – Student project documentation and files.
-- **`docs/`** – Additional guides and references. For a detailed guide on how to use the materials, please refer to [docs/guideline.md](docs/guideline.md).
+- **`docs/`** – Additional guides and references. For a detailed guide on how to use the materials, please refer to [docs/guidelines.md](docs/guideline.md).
 
 ---
 
