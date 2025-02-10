@@ -25,10 +25,10 @@ For a step-by-step guide on setting up and using the materials, check the [Usage
 To help you locate and utilize resources efficiently, the repository is structured as follows:
 
 ### 🔹 **Main Folders:**
-- **`lectures/`** – Contains all interactive Jupyter Notebooks.
-- **`datasets/`** – Sample datasets used in the notebooks.
-- **`projects/`** – Student project documentation and files.
-- **`docs/`** – Additional guides and references. For a detailed guide on how to use the materials, please refer to [docs/guidelines.md](docs/guideline.md).
+- **[`notebooks/`](./notebooks)** – Contains all interactive Jupyter Notebooks.
+- **[`datasets/`](./datasets)** – Sample datasets used in the notebooks.
+- **[`projects/`](./projects)** – Student project documentation and files.
+- **[`docs/`](./docs)** – Additional guides and references. For a detailed guide on how to use the materials, please refer to [docs/guidelines.md](docs/guideline.md).
 
 ---
 
@@ -36,8 +36,7 @@ To help you locate and utilize resources efficiently, the repository is structur
 This repository highlights innovative student projects demonstrating the application of advanced construction technologies. You can find them under the **`projects/`** folder.
 
 ### ✨ Featured Projects:
-- **Project 1:** Evaluate and Enhance Thermal Comfort for Occupants in the CAED Building (stay tuned!)
-
+- **Project:** Evaluate and Enhance Thermal Comfort for Occupants in the CAED Building (stay tuned!)
 ---
 
 ## 📜 Copyright & License
