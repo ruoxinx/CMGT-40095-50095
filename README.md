@@ -1,6 +1,8 @@
 # Course-Advanced-Tech-Applications-in-Construction
 
-<img src="course.webp" alt="Course Icon" width="100" />
+<p align="center">
+  <img src="course.webp" alt="Course Icon" width="400" />
+</p>
 
 Welcome to the **Advanced Technology Applications in Construction** repository! This guide provides essential information on how to navigate the repository, explore student project displays, and understand copyright information.
 
