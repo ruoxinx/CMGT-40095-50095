@@ -34,9 +34,9 @@ This repository highlights Hands-on student projects demonstrating the applicati
 - [Machine Learning Models in Construction](https://github.com/ruoxinx/CMGT-40095-50095/tree/main/lectures/L07_ML_construction) (using concrete compressive strength and building permits data)
 - [Deep Learning Models in Construction](https://github.com/ruoxinx/CMGT-40095-50095/tree/main/lectures/L08_DL_Construction) (safety equipment and construction vehicle detection)
 
-### ✨ Featured Projects:
+### 📌 Featured Projects:
 
-#### 📌 Evaluating Indoor Thermal Comfort in the CAED Building (Spring 2025)
+#### Evaluating Indoor Thermal Comfort in the CAED Building (Spring 2025)
 - **Romby’s Group**: Luke Chamberlain, Harris Cheifetz, Ethan Clow, Icarus Fernandes, Sarah Joseph, Katelyn Owens, Aaron Rombach – [Project Report](projects/2025%20Spring/Project%20Report%20(Assignment%233).pdf)
 - **Group 2**: Shiva Kumar Miryala, Javeed Shaik, Gnana Jagadeesh Gangula, Ozaswi Acharya, Shivani Patel, Bishnu Adhikari, Neha Pillanagrovi, Mehraneh Aladini, Reshma Ananthaneni – [Project Report](projects/2025%20Spring/Assignment%20%233%20Group%20REPORT.pdf)
 
@@ -46,4 +46,4 @@ This repository highlights Hands-on student projects demonstrating the applicati
 
 For inquiries about reuse, adaptations, or collaborations, please open an issue or submit a request or contact me (rxiong3@kent.edu).
 
-📢 **Enjoy exploring and contributing to the field of construction technology!**
+**Enjoy exploring and contributing to the field of construction technology!**
