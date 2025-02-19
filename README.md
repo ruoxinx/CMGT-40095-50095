@@ -31,7 +31,10 @@ To help you locate and utilize resources efficiently, the repository is structur
 This repository highlights innovative student projects demonstrating the application of advanced construction technologies. You can find them under the **`projects/`** folder.
 
 ### ✨ Featured Projects:
-- **Project:** Evaluate and Enhance Thermal Comfort for Occupants in the CAED Building (stay tuned!)
+
+#### 📌 Evaluating & Enhancing Thermal Comfort in the CAED Building (Spring 2025)
+- **Romby’s Group**: Luke Chamberlain, Harris Cheifetz, Ethan Clow, Icarus Fernandes, Sarah Joseph, Katelyn Owens, Aaron Rombach – [📄 Project Report](projects/2025 Spring/Project Report (Assignment#3).pdf)
+- **Group 2**: Shiva Kumar Miryala, Javeed Shaik, Gnana Jagadeesh Gangula, Ozaswi Acharya, Shivani Patel, Bishnu Adhikari, Neha Pillanagrovi, Mehraneh Aladini, Reshma Ananthaneni – [📄 Project Report](projects/2025 Spring/Assignment #3 Group REPORT.pdf)	
 
 ## 📜 Copyright & License
 
