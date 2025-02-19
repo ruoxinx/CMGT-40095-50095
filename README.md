@@ -1,4 +1,4 @@
-# Course-Advanced-Tech-Applications-in-Construction
+# CMGT 40095/50095: Advanced-Tech-Applications-in-Construction
 
 **Instructor**: Ruoxin Xiong, Ph.D., Assistant Professor, Construction Management, College of Architecture and Environmental Design, Kent State University
 
