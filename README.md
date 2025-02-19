@@ -3,7 +3,7 @@
 **Instructor**: Ruoxin Xiong, Ph.D., Assistant Professor, Construction Management, College of Architecture and Environmental Design, Kent State University
 
 <p align="center">
-  <img src="course.webp" alt="Course Icon" width="300" />
+  <img src="./media/course.webp" alt="Course Icon" width="300" />
 </p>
 
 Welcome to the **CMGT 40095/50095: Advanced Technology Applications in Construction** repository! This guide provides essential information on how to navigate the repository, explore student project displays, and understand copyright information.
@@ -37,6 +37,11 @@ This repository highlights Hands-on student projects demonstrating the applicati
 ### 📌 Featured Projects:
 
 #### Evaluating Indoor Thermal Comfort in the CAED Building (Spring 2025)
+
+<p align="center">
+  <img src="./media/project.png" alt="Course Project" width="400" />
+</p>
+
 - **Romby’s Group**: Luke Chamberlain, Harris Cheifetz, Ethan Clow, Icarus Fernandes, Sarah Joseph, Katelyn Owens, Aaron Rombach – [Project Report](projects/2025%20Spring/Project%20Report%20(Assignment%233).pdf)
 - **Group 2**: Shiva Kumar Miryala, Javeed Shaik, Gnana Jagadeesh Gangula, Ozaswi Acharya, Shivani Patel, Bishnu Adhikari, Neha Pillanagrovi, Mehraneh Aladini, Reshma Ananthaneni – [Project Report](projects/2025%20Spring/Assignment%20%233%20Group%20REPORT.pdf)
 
