@@ -1,12 +1,12 @@
 # CMGT 40095/50095: Advanced-Tech-Applications-in-Construction
 
-**Instructor**: Ruoxin Xiong, Ph.D., Assistant Professor, Construction Management, College of Architecture and Environmental Design, Kent State University
+Welcome to the **CMGT 40095/50095: Advanced Technology Applications in Construction** repository! This guide provides essential information on how to navigate the repository, explore student project displays, and understand copyright information.
 
 <p align="center">
   <img src="./media/course.webp" alt="Course Icon" width="300" />
 </p>
 
-Welcome to the **CMGT 40095/50095: Advanced Technology Applications in Construction** repository! This guide provides essential information on how to navigate the repository, explore student project displays, and understand copyright information.
+**Instructor**: Ruoxin Xiong, Ph.D., Assistant Professor, Construction Management, College of Architecture and Environmental Design, Kent State University
 
 ## 📖 Overview
 This repository contains course materials, including interactive Jupyter Notebooks, code snippets, and project documentation, designed to introduce and explore advanced technologies in construction.
