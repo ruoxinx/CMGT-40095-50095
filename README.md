@@ -8,10 +8,9 @@
 
 Welcome to the **CMGT 40095/50095: Advanced Technology Applications in Construction** repository! This guide provides essential information on how to navigate the repository, explore student project displays, and understand copyright information.
 
-## 📖 Basic Information
+## 📖 Overview
 This repository contains course materials, including interactive Jupyter Notebooks, code snippets, and project documentation, designed to introduce and explore advanced technologies in construction.
 
-### Key Features:
 - Hands-on Jupyter Notebooks for practical learning.
 - Sample datasets for construction-related analysis.
 - Student project showcases and case studies.
@@ -20,7 +19,6 @@ This repository contains course materials, including interactive Jupyter Noteboo
 ## 🗺️ Navigation
 To help you locate and utilize resources efficiently, the repository is structured as follows:
 
-### 🔹 **Main Folders:**
 - **[`lectures/`](./lectures)** – Contains all interactive Jupyter Notebooks.
 - **[`datasets/`](./datasets)** – Sample datasets used in the notebooks.
 - **[`projects/`](./projects)** – Student project documentation and files.
