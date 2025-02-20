@@ -24,7 +24,7 @@ To help you locate and utilize resources efficiently, the repository is structur
 - **[`lectures/`](./lectures)** – Contains all interactive Jupyter Notebooks.
 - **[`datasets/`](./datasets)** – Sample datasets used in the notebooks.
 - **[`projects/`](./projects)** – Student project documentation and files.
-- **[`docs/`](./docs)** – Additional guides and references. For a detailed guide on how to use the materials, please refer to [docs/guidelines.md](docs/guideline.md).
+- **[`docs/`](./docs)** – Additional guides and references. For a detailed guide on how to use the materials, please refer to [docs/guidelines.md](docs/guidelines.md).
 
 
 ## 🎓 Project Display
