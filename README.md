@@ -19,11 +19,10 @@ This repository contains course materials, including interactive Jupyter Noteboo
 ## 🗺️ Navigation
 To help you locate and utilize resources efficiently, the repository is structured as follows:
 
-### 🔹 **Main Folders:**
-- **[`lectures/`](./lectures)** – Contains all interactive Jupyter Notebooks.
-- **[`datasets/`](./datasets)** – Sample datasets used in the notebooks.
-- **[`projects/`](./projects)** – Student project documentation and files.
-- **[`docs/`](./docs)** – Additional guides and references. For a detailed guide on how to use the materials, please refer to [docs/guidelines.md](docs/guidelines.md).
+- **[`lectures/`](./lectures)** – Contains all interactive Jupyter Notebooks
+- **[`datasets/`](./datasets)** – Sample datasets used in the notebooks
+- **[`projects/`](./projects)** – Student project documentation and files
+- **[`docs/`](./docs)** – Additional guides and references. For a detailed guide on how to use the materials, please refer to [docs/guidelines.md](docs/guidelines.md)
 
 ## 🎓 Hands-on Projects
 This repository highlights Hands-on student projects demonstrating the application of advanced construction technologies. Below are some examples:
@@ -50,5 +49,3 @@ This repository highlights Hands-on student projects demonstrating the applicati
 © 2025 Ruoxin Xiong. All rights reserved.
 
 For inquiries about reuse, adaptations, or collaborations, please open an issue or submit a request or contact me (rxiong3@kent.edu).
-
-**Enjoy exploring and contributing to the field of construction technology!**
