@@ -60,9 +60,24 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
    ```
 
 ## Installing Required Python Libraries
-1. **Create a Virtual Environment**
-   - We’ll install the DHT library in a virtual environment. Creating a virtual environment will isolate the Python libraries we’re using, in this case, the DHT library, from the rest of the system.
-   We’ll create our virtual environment on a directory on our Desktop. Enter the following command on a Terminal window to move to the Desktop:
+1. **Installing Required Python Libraries**
+   - We’ll install the library.
+   Install system dependency for Pi 5 GPIO and 
+   
+   ```
+   sudo apt update
+   sudo apt install -y python3-lgpio
+   python3 -c "import lgpio; print('lgpio OK')"
+   ```
+
+   - Install Python packages
+   
+   ```
+   python3 -m pip install --upgrade pip --break-system-packages
+   python3 -m pip install adafruit-blinka adafruit-circuitpython-dht --break-system-packages
+   ```
+   
+   - Create Project Folder
    ```
    cd ~/Desktop
    ```
@@ -74,27 +89,6 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
    ```
    cd ~/Desktop/dht_test
    ```
-   - Create a virtual environment for this directory called ```pienv```. This must be the same directory where we’ll install the DHT library. 
-   Replace ```pienv``` with the desired name for your virtual environment.
-   ```
-   python3 -m venv pienv
-   ```
-   - Then, you can run the following command to check that the virtual environment is there.
-   ```
-   ls -l
-   ```
-   - Activate the virtual environment:
-   ```
-   source pienv/bin/activate
-   ```
-
-2. **Installing the Adafruit_CircuitPython_DHT Library**
-   - Installing the Adafruit_CircuitPython_DHT Library
-   Now that we are in our virtual environment, we can install the library. Run the following command:
-   ```
-   python3 -m pip install adafruit-circuitpython-dht
-   ```
-   After a few seconds, the library will be installed (ignore any yellow warnings about deprecated packages).
 
 ## Project Code
 **Python Code for Raspberry Pi DHT11**
@@ -157,11 +151,6 @@ A 10kΩ resistor is typically connected between the DATA and VCC pins (3.3V) to 
    Then run it on your Raspberry Pi. Run the following command (make sure you are on the correct path—the same folder of the virtual environment):
    ```
    python dht11_write.py
-   ```
-   
-   The virtual environment must be active to run the script. If the virtual environment is not active, you can rerun the following command to activate ```pienv```.
-   ```
-   source pienv/bin/activate
    ```
 
 **Reference:**  
