@@ -379,6 +379,16 @@ figcaption {
   font-weight: 700;
 }
 
+.module-index {
+  margin: 0 0 0.45rem;
+  color: var(--brand);
+  font-family: var(--heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .callout {
   margin-top: 1.25rem;
   background: var(--accent);
