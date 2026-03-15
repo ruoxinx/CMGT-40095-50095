@@ -10,7 +10,7 @@ You can access and run all course notebooks directly in your web browser without
 2. **Access the Notebooks**:
    - In Google Colab, navigate to the 'File' menu and select 'Open notebook'.
    - Switch to the 'GitHub' tab in the dialog that appears.
-   - Enter the course repository URL: `https://github.com/ruoxinx/Course-Advanced-Tech-Applications-in-Construction` and press Enter.
+   - Enter the course repository URL: `https://github.com/ruoxinx/CMGT-40095-50095` and press Enter.
    - Browse through the list of notebooks and select the one you wish to open.
 
 3. **Run the Notebook**:
@@ -30,7 +30,7 @@ If you prefer to work with the notebooks on your local machine, you can install 
 2. **Download the Notebooks**:
    - Clone or download the repository from GitHub to your local machine using the following command:
      ```
-     git clone https://github.com/ruoxinx/Course-Advanced-Tech-Applications-in-Construction.git
+     git clone https://github.com/ruoxinx/CMGT-40095-50095.git
      ```
    - Navigate to the repository directory on your computer.
 
