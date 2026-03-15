@@ -1,5 +1,8 @@
 # Using the Course in Google Colab
 
+Note: the website version of this guide is the canonical version:
+[docs/guidelines.html](./guidelines.html)
+
 Google Colab is the recommended way for students to use this course. Most notebook-based modules can now be opened with one click from the course website, so students usually do not need to install anything.
 
 ## Recommended student workflow
