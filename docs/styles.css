@@ -147,12 +147,10 @@ h3,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
+  width: 1.5rem;
+  height: 1.5rem;
   color: var(--ink);
-  background: #fff;
+  background: transparent;
 }
 
 .icon-link svg {
@@ -360,32 +358,6 @@ li {
   margin-top: 1.25rem;
 }
 
-.trust-card {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: start;
-}
-
-.trust-card h3,
-.trust-card p {
-  grid-column: 2;
-}
-
-.trust-badge {
-  display: inline-grid;
-  place-items: center;
-  width: 3.25rem;
-  height: 3.25rem;
-  border-radius: 14px;
-  background: var(--brand);
-  color: #fff;
-  font-family: var(--heading);
-  font-size: 0.9rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
-
 .project-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -477,10 +449,6 @@ li {
   font-size: 0.78rem;
 }
 
-.note-card {
-  margin-top: 1.25rem;
-}
-
 .footer-layout {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -527,10 +495,6 @@ li {
     align-items: flex-start;
   }
 
-  .trust-card h3,
-  .trust-card p {
-    grid-column: auto;
-  }
 }
 
 @media (max-width: 640px) {
