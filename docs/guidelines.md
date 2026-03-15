@@ -1,52 +1,44 @@
-## Viewing and Running the Notebooks Using Google Colab
+# Using the Course in Google Colab
 
-You can access and run all course notebooks directly in your web browser without needing to install any software, thanks to [Google Colab](https://colab.research.google.com/). Google Colab provides a robust notebook environment that supports Python code execution and is accessible from anywhere.
+Google Colab is the recommended way for students to use this course. Most notebook-based modules can now be opened with one click from the course website, so students usually do not need to install anything.
 
-### How to Use Google Colab:
+## Recommended student workflow
 
-1. **Open Google Colab**:
-   - Visit [Google Colab](https://colab.research.google.com/) to start.
+1. Open the [module hub](./modules/index.html).
+2. Choose the module for the week.
+3. Click the `Launch in Colab` button on that module page.
+4. In Colab, sign in with a Google account if prompted.
+5. Run the notebook from top to bottom, one cell at a time.
 
-2. **Access the Notebooks**:
-   - In Google Colab, navigate to the 'File' menu and select 'Open notebook'.
-   - Switch to the 'GitHub' tab in the dialog that appears.
-   - Enter the course repository URL: `https://github.com/ruoxinx/CMGT-40095-50095` and press Enter.
-   - Browse through the list of notebooks and select the one you wish to open.
+## Direct Colab launch links
 
-3. **Run the Notebook**:
-   - After selecting a notebook, it will open in a new tab. You can read the content and run the code cells sequentially by clicking on each and pressing `Shift + Enter` or using the play button in the toolbar.
+- [Built Environment Data Stories](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L02_construction_data_visualization/L02_construction_data_visualization.ipynb)
+- [Jobsite Sensing and Site Monitoring](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L05_construction_data_sensing/code/dht11_write.ipynb)
+- [Construction Data Preparation](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L06_construction_data_process/Lab_data_preprocess.ipynb)
+- [Material and Permit Forecasting](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L07_ML_construction/Lab_ML_Construction.ipynb)
+- [Safety Vision and PPE Detection](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L08_DL_Construction/Hardhat_Detection_tutorial.ipynb)
+- [Generative AI for Design Communication: Stable Diffusion](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L20_gen_AI_design/Stable_diffusion.ipynb)
+- [Generative AI for Design Communication: Tiny Diffusion](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L20_gen_AI_design/tiny_diffusion.ipynb)
+- [Generative AI for Design Communication: pix2pix](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L20_gen_AI_design/pix2pix.ipynb)
 
-For a comprehensive introduction to Google Colab and Jupyter Notebooks, please refer to this detailed [tutorial](https://colab.research.google.com/notebooks/intro.ipynb).
+## Tips for students with no coding background
 
-## Installing and Using Notebooks Locally with Jupyter
+- Read the markdown explanation before running the next code cell.
+- Run only one cell at a time.
+- If something breaks, restart from the top rather than skipping ahead.
+- Use comments in your own copied notebook to explain what you think each step is doing.
+- Focus on the construction question first, then the code second.
 
-If you prefer to work with the notebooks on your local machine, you can install Jupyter. For a more enhanced experience, you may opt for JupyterLab, which offers a full-fledged integrated development environment (IDE).
+## If a module is not notebook-based
 
-### Installation Guide:
+Some modules use guides, scripts, or setup documents instead of a single Colab notebook. In those cases, the module page will link to the most relevant files directly in GitHub.
 
-1. **Install Jupyter or JupyterLab**:
-   - Visit the [Jupyter official website](https://jupyter.org/install) for instructions on how to install Jupyter Notebook or JupyterLab on your system.
+## Optional local workflow
 
-2. **Download the Notebooks**:
-   - Clone or download the repository from GitHub to your local machine using the following command:
-     ```
-     git clone https://github.com/ruoxinx/CMGT-40095-50095.git
-     ```
-   - Navigate to the repository directory on your computer.
+Students who prefer working locally can still clone the repository and run Jupyter, but this is optional:
 
-3. **Launch Jupyter**:
-   - Open a command terminal and run the following command to start Jupyter Notebook or JupyterLab:
-     ```
-     jupyter notebook
-     ```
-     or
-     ```
-     jupyter lab
-     ```
-   - Jupyter will open in your default web browser.
-
-4. **Open and Run Notebooks**:
-   - From the Jupyter interface, navigate to the folder containing the downloaded notebooks.
-   - Click on a notebook file to open it and start interacting with the contents.
-
-These instructions will help you effectively use and manage the course materials, whether online through Google Colab or locally via Jupyter.
+```bash
+git clone https://github.com/ruoxinx/CMGT-40095-50095.git
+cd CMGT-40095-50095
+jupyter lab
+```

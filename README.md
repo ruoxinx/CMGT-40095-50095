@@ -10,10 +10,17 @@ This repository hosts the course website and teaching materials for **AI in Cons
 
 The public-facing course site is available here:
 
-- [Course website](./docs/index.html)
-- GitHub Pages URL: `https://ruoxinx.github.io/CMGT-40095-50095/`
+- [Course website](https://ruoxinx.github.io/CMGT-40095-50095/)
 
 It presents the course in a more accessible, professional format for students, collaborators, and broader built-environment audiences.
+
+## Module hub
+
+Students can now access dedicated module pages here:
+
+- [Module hub](./docs/modules/index.html)
+
+Each module page uses more construction-specific naming and, where available, includes a direct `Launch in Colab` link for browser-based access.
 
 ## About the course
 
@@ -41,6 +48,7 @@ The materials are designed to be useful not only for construction management stu
 
 - [Open the syllabus](./syllabus/CMGT_40095_50095_AI%20IN%20CONSTRUCTION_S26.pdf)
 - [Read the notebook access guide](./docs/guidelines.md)
+- [Browse the module hub](./docs/modules/index.html)
 - [Browse lecture materials](./lectures)
 - [Browse student projects](./projects)
 

@@ -355,6 +355,45 @@ li {
   background: var(--surface-subtle);
 }
 
+.page-main {
+  background: #fff;
+}
+
+.page-hero {
+  padding: 2.5rem 0 2rem;
+}
+
+.page-title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+}
+
+.page-intro {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.breadcrumb {
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.breadcrumb a {
+  color: var(--brand-dark);
+}
+
+.module-overview-grid {
+  align-items: stretch;
+}
+
+.section-link {
+  margin: 1.5rem 0 0;
+  font-weight: 700;
+}
+
 .footer-layout {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
