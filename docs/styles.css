@@ -368,6 +368,20 @@ figcaption {
   margin-top: 1.25rem;
 }
 
+.thanks-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+
+.thanks-logo {
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+}
+
 .project-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -537,7 +551,8 @@ code {
   .project-layout,
   .footer-layout,
   .speaker-hero,
-  .speaker-gallery {
+  .speaker-gallery,
+  .thanks-card {
     grid-template-columns: 1fr;
   }
 
