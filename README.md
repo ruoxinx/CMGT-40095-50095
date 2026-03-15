@@ -50,6 +50,7 @@ The materials are designed to be useful not only for construction management stu
 - [Read the notebook access guide](./docs/guidelines.html)
 - [Browse the syllabus page](./docs/syllabus.html)
 - [Browse the module hub](./docs/modules/index.html)
+- [Read the collaboration page](./docs/collaboration.html)
 - [Browse lecture materials](./lectures)
 - [Browse student projects](./projects)
 
