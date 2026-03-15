@@ -437,6 +437,13 @@ figcaption {
   margin-top: 1.5rem;
 }
 
+.instructor-hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
 .guide-section {
   margin-top: 2.25rem;
 }
@@ -553,6 +560,7 @@ code {
   .footer-layout,
   .speaker-hero,
   .speaker-gallery,
+  .instructor-hero,
   .thanks-card {
     grid-template-columns: 1fr;
   }
