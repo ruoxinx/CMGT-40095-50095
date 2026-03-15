@@ -47,7 +47,8 @@ The materials are designed to be useful not only for construction management stu
 ## Start here
 
 - [Open the syllabus](./syllabus/CMGT_40095_50095_AI%20IN%20CONSTRUCTION_S26.pdf)
-- [Read the notebook access guide](./docs/guidelines.md)
+- [Read the notebook access guide](./docs/guidelines.html)
+- [Browse the syllabus page](./docs/syllabus.html)
 - [Browse the module hub](./docs/modules/index.html)
 - [Browse lecture materials](./lectures)
 - [Browse student projects](./projects)
