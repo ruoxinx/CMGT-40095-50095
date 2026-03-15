@@ -444,6 +444,11 @@ figcaption {
   align-items: center;
 }
 
+.instructor-hero .page-title,
+.instructor-hero .page-intro {
+  max-width: 34rem;
+}
+
 .guide-section {
   margin-top: 2.25rem;
 }
