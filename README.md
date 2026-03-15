@@ -1,6 +1,6 @@
-# CMGT 40095/50095: AI in Construction
+# AI in Construction
 
-This repository hosts the course website and teaching materials for **CMGT 40095/50095: AI in Construction** at Kent State University.
+This repository hosts the course website and teaching materials for **AI in Construction**.
 
 <p align="center">
   <img src="./media/course.webp" alt="Course graphic for AI in Construction" width="320" />
@@ -11,6 +11,7 @@ This repository hosts the course website and teaching materials for **CMGT 40095
 The public-facing course site is available here:
 
 - [Course website](./docs/index.html)
+- GitHub Pages URL: `https://ruoxinx.github.io/CMGT-40095-50095/`
 
 It presents the course in a more accessible, professional format for students, collaborators, and broader built-environment audiences.
 
