@@ -259,6 +259,12 @@ li {
   border: 1px solid var(--line);
 }
 
+figcaption {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .hero-media {
   position: relative;
 }
