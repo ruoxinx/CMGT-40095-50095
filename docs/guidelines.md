@@ -1,13 +1,13 @@
 # Using the Course in Google Colab
 
 Note: the website version of this guide is the canonical version:
-[docs/guidelines.html](./guidelines.html)
+[ruoxinx.github.io/CMGT-40095-50095/guidelines.html](https://ruoxinx.github.io/CMGT-40095-50095/guidelines.html)
 
 Google Colab is the recommended way for students to use this course. Most notebook-based modules can now be opened with one click from the course website, so students usually do not need to install anything.
 
 ## Recommended student workflow
 
-1. Open the [module hub](./modules/index.html).
+1. Open the [module hub](https://ruoxinx.github.io/CMGT-40095-50095/modules/).
 2. Choose the module for the week.
 3. Click the `Launch in Colab` button on that module page.
 4. In Colab, sign in with a Google account if prompted.
@@ -16,10 +16,10 @@ Google Colab is the recommended way for students to use this course. Most notebo
 ## Direct Colab launch links
 
 - [Data Visualization and Visual Analytics for the Built Environment](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L02_construction_data_visualization/L02_construction_data_visualization.ipynb)
-- [Environmental Sensing and Site Monitoring Systems](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L05_construction_data_sensing/code/dht11_write.ipynb)
+- [Data Sensing and Site Monitoring Systems](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L05_construction_data_sensing/code/dht11_write.ipynb)
 - [Construction Data Preprocessing and Quality Control](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L06_construction_data_process/Lab_data_preprocess.ipynb)
-- [Predictive Modeling for Construction Materials and Permitting](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L07_ML_construction/Lab_ML_Construction.ipynb)
-- [Computer Vision for Construction Safety Analytics](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L08_DL_Construction/Hardhat_Detection_tutorial.ipynb)
+- [Machine Learning for Construction](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L07_ML_construction/Lab_ML_Construction.ipynb)
+- [Deep Learning for Construction](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L08_DL_Construction/Hardhat_Detection_tutorial.ipynb)
 - [Generative Models for Design Communication: Stable Diffusion](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L20_gen_AI_design/Stable_diffusion.ipynb)
 - [Generative Models for Design Communication: Tiny Diffusion](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L20_gen_AI_design/tiny_diffusion.ipynb)
 - [Generative Models for Design Communication: pix2pix](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L20_gen_AI_design/pix2pix.ipynb)

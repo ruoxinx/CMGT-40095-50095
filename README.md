@@ -20,7 +20,7 @@ Course website and teaching materials for AI in Construction.
 
 - [Syllabus PDF](./syllabus/CMGT_40095_50095_AI%20IN%20CONSTRUCTION_S26.pdf)
 - [Syllabus page](https://ruoxinx.github.io/CMGT-40095-50095/syllabus.html)
-- [Notebook guide](./docs/guidelines.html)
+- [Notebook guide](https://ruoxinx.github.io/CMGT-40095-50095/guidelines.html)
 - [Module hub](https://ruoxinx.github.io/CMGT-40095-50095/modules/)
 
 ## Licensing
