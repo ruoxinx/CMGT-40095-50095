@@ -379,6 +379,11 @@ figcaption {
   font-weight: 700;
 }
 
+.footer-links a {
+  margin-top: 0;
+  margin-right: 0;
+}
+
 .module-link-card {
   display: block;
   height: 100%;
