@@ -5,7 +5,7 @@ Course website and teaching materials for AI in Construction.
 ## Website
 
 - Public site: [ruoxinx.github.io/CMGT-40095-50095](https://ruoxinx.github.io/CMGT-40095-50095/)
-- Module hub: [docs/modules/index.html](./docs/modules/index.html)
+- Module hub: [ruoxinx.github.io/CMGT-40095-50095/modules/](https://ruoxinx.github.io/CMGT-40095-50095/modules/)
 
 ## Repository guide
 
@@ -19,9 +19,9 @@ Course website and teaching materials for AI in Construction.
 ## Start here
 
 - [Syllabus PDF](./syllabus/CMGT_40095_50095_AI%20IN%20CONSTRUCTION_S26.pdf)
-- [Syllabus page](./docs/syllabus.html)
+- [Syllabus page](https://ruoxinx.github.io/CMGT-40095-50095/syllabus.html)
 - [Notebook guide](./docs/guidelines.html)
-- [Module hub](./docs/modules/index.html)
+- [Module hub](https://ruoxinx.github.io/CMGT-40095-50095/modules/)
 
 ## Licensing
 

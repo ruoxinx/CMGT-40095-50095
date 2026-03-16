@@ -379,6 +379,22 @@ figcaption {
   font-weight: 700;
 }
 
+.module-link-card {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.module-link-card:hover,
+.module-link-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: #b8c9da;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+  color: inherit;
+}
+
 .module-index {
   margin: 0 0 0.45rem;
   color: var(--brand);
@@ -478,6 +494,10 @@ figcaption {
   max-width: 34rem;
 }
 
+.instructor-hero .page-intro {
+  white-space: nowrap;
+}
+
 .guide-section {
   margin-top: 2.25rem;
 }
@@ -519,6 +539,10 @@ code {
   border-radius: 16px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
+}
+
+.speaker-headshot-small img {
+  width: 120px;
 }
 
 .speaker-label {
@@ -602,6 +626,10 @@ code {
   .topbar {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .instructor-hero .page-intro {
+    white-space: normal;
   }
 }
 
