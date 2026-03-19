@@ -15,14 +15,14 @@ Google Colab is the recommended way for students to use this course. Most notebo
 
 ## Direct Colab launch links
 
-- [Data Visualization and Visual Analytics for the Built Environment](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L02_construction_data_visualization/L02_construction_data_visualization.ipynb)
-- [Data Sensing and Site Monitoring Systems](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L05_construction_data_sensing/code/dht11_write.ipynb)
-- [Construction Data Preprocessing and Quality Control](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L06_construction_data_process/Lab_data_preprocess.ipynb)
-- [Machine Learning for Construction](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L07_ML_construction/Lab_ML_Construction.ipynb)
-- [Deep Learning for Construction](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L08_DL_Construction/Hardhat_Detection_tutorial.ipynb)
-- [Generative Models for Design Communication: Stable Diffusion](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L20_gen_AI_design/Stable_diffusion.ipynb)
-- [Generative Models for Design Communication: Tiny Diffusion](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L20_gen_AI_design/tiny_diffusion.ipynb)
-- [Generative Models for Design Communication: pix2pix](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/L20_gen_AI_design/pix2pix.ipynb)
+- [Data Visualization and Visual Analytics for the Built Environment](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/M01_construction_data_visualization/Code/construction_data_visualization.ipynb)
+- [Data Sensing and Site Monitoring Systems](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/M02_construction_data_sensing/code/dht11_write.ipynb)
+- [Construction Data Preprocessing and Quality Control](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/M03_construction_data_process/Code/Lab_data_preprocess.ipynb)
+- [Machine Learning for Construction](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/M04_ML_construction/Code/Lab_ML_Construction.ipynb)
+- [Deep Learning for Construction](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/M05_DL_Construction/Code/Hardhat_Detection_tutorial.ipynb)
+- [Generative Models for Design Communication: Stable Diffusion](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/M07_Gen_AI_design/Code/Stable_diffusion.ipynb)
+- [Generative Models for Design Communication: Tiny Diffusion](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/M07_Gen_AI_design/Code/tiny_diffusion.ipynb)
+- [Generative Models for Design Communication: pix2pix](https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/M07_Gen_AI_design/Code/pix2pix.ipynb)
 
 ## Tips for students with no coding background
 
