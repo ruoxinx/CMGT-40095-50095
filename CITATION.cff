@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use these course materials, please cite this repository."
+title: "AI in Construction"
+type: software
+authors:
+  - family-names: "Xiong"
+    given-names: "Ruoxin"
+    affiliation: "Kent State University"
+    email: "rxiong3@kent.edu"
+repository-code: "https://github.com/ruoxinx/CMGT-40095-50095"
+url: "https://github.com/ruoxinx/CMGT-40095-50095"
+abstract: "Course website and teaching materials for AI in Construction (CMGT 40095/50095), including lecture materials, assignments, datasets, and project resources."
+keywords:
+  - "AI in construction"
+  - "construction education"
+  - "digital twins"
+  - "robotics in construction"
+  - "machine learning"
+  - "deep learning"
+  - "generative AI"
