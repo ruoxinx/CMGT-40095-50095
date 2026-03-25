@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 5 Workflow | AI in Construction</title>
+    <meta
+      name="description"
+      content="Workflow builder for Module 5 deep learning hardhat detection in Google Colab."
+    />
+    <meta property="og:title" content="Module 5 Workflow | AI in Construction" />
+    <meta
+      property="og:description"
+      content="A guided page for dataset download, preprocessing, training, validation, and testing in Module 5."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ruoxinx.github.io/CMGT-40095-50095/modules/deep-learning-workflow.html"
+    />
+    <meta
+      property="og:image"
+      content="https://ruoxinx.github.io/CMGT-40095-50095/brand-icon.svg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="../brand-icon.svg" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="container">
+        <nav class="topbar" aria-label="Primary">
+          <a class="brand" href="../index.html">
+            <span class="brand-mark" aria-hidden="true">AI</span>
+            <span>
+              <strong>AI in Construction</strong>
+              <span class="brand-subtitle">CMGT 40095/50095</span>
+            </span>
+          </a>
+          <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../instructor.html">Instructor</a>
+            <a href="../syllabus.html">Syllabus</a>
+            <a href="./index.html">Modules</a>
+            <a href="../collaboration.html">Collaboration</a>
+            <a href="../guest-speakers.html">Guest speakers</a>
+            <a href="../guidelines.html">Notebook guide</a>
+            <a href="../license.html">License</a>
+          </div>
+          <a
+            class="icon-link"
+            href="https://github.com/ruoxinx/CMGT-40095-50095"
+            aria-label="Open GitHub repository"
+            title="GitHub repository"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.56v-2.18c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.69 1.25 3.35.95.1-.75.4-1.25.72-1.54-2.56-.29-5.25-1.28-5.25-5.71 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.98 10.98 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.09 0 4.44-2.69 5.41-5.26 5.7.41.35.78 1.04.78 2.1v3.12c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
+              />
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="page-main">
+      <div class="container">
+        <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="./index.html">Modules</a> / <a href="./deep-learning.html">Deep Learning for Construction</a> / Workflow</p>
+
+        <section class="page-hero workflow-hero">
+          <p class="eyebrow">Module 5 workflow tool</p>
+          <h1 class="page-title">Deep learning workflow</h1>
+          <p class="page-intro">
+            This page turns the hardhat detection notebook into a guided, browser-side workflow app. Fill in a few settings, preview dataset structure and labels, and run a mock training dashboard before moving into Colab.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/M05_DL_Construction/Code/Hardhat_Detection_tutorial.ipynb">Open the original Colab</a>
+            <button class="button button-secondary" id="startGuide" type="button">Start guided mode</button>
+          </div>
+        </section>
+
+        <nav class="stepper-nav" aria-label="Workflow steps">
+          <button class="step-chip is-active" data-step-target="0" type="button">1. Overview</button>
+          <button class="step-chip" data-step-target="1" type="button">2. Data setup</button>
+          <button class="step-chip" data-step-target="2" type="button">3. Data preview</button>
+          <button class="step-chip" data-step-target="3" type="button">4. Model training</button>
+          <button class="step-chip" data-step-target="4" type="button">5. Testing</button>
+        </nav>
+
+        <section class="section section-light step-panel is-active" data-step-panel="0">
+          <div class="section-heading">
+            <p class="eyebrow">Workflow stages</p>
+            <h2>See the full pipeline first</h2>
+            <p>
+              The underlying model and dataset stay the same as the notebook. The difference is that each stage is explained clearly before you ever need to look at the code.
+            </p>
+          </div>
+
+          <div class="grid grid-two overview-grid">
+            <article class="card">
+              <h3>Model introduction</h3>
+              <p>
+                This module uses <strong>YOLOv5</strong>, a deep learning object detection model. It does more than classify an image: it finds object locations and predicts labels such as <code>helmet</code> and <code>head</code>.
+              </p>
+              <ul class="checklist">
+                <li>Input: a construction image</li>
+                <li>Output: bounding boxes with class labels</li>
+                <li>Goal: detect whether workers are wearing hard hats</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Why YOLOv5 is used here</h3>
+              <p>
+                YOLOv5 is practical for teaching because it is widely used, supports pretrained weights, and makes it easier to show the full pipeline from annotation to training, validation, and testing.
+              </p>
+              <ul class="checklist">
+                <li>Fast object detection workflow</li>
+                <li>Good fit for custom safety datasets</li>
+                <li>Produces metrics that are straightforward to explain</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="workflow-strip" aria-label="Deep learning workflow">
+            <article class="card workflow-step">
+              <p class="workflow-step-number">1</p>
+              <h3>Download data</h3>
+              <p>Use the Google Drive file ID to bring the dataset into Colab.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">2</p>
+              <h3>Organize files</h3>
+              <p>Split images into training, validation, and testing folders.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">3</p>
+              <h3>Convert labels</h3>
+              <p>Change XML annotations into YOLO text labels.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">4</p>
+              <h3>Train the model</h3>
+              <p>Use a pretrained YOLO model to learn hardhat detection.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">5</p>
+              <h3>Validate performance</h3>
+              <p>Monitor loss, precision, recall, and mAP during training.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">6</p>
+              <h3>Test on new images</h3>
+              <p>Run inference on unseen images and inspect predictions.</p>
+            </article>
+          </div>
+
+          <div class="step-actions">
+            <button class="button button-primary" data-step-next type="button">Next: Data setup</button>
+          </div>
+        </section>
+
+        <section class="section section-accent step-panel" id="builder" data-step-panel="1">
+          <div class="section-heading">
+            <p class="eyebrow">Data setup</p>
+            <h2>Set up the dataset and workflow</h2>
+            <p>
+              This step is for preparing the dataset, choosing the split, and generating the Colab cells. The explanation stays visible, and the code is grouped into smaller blocks so it is easier to follow.
+            </p>
+          </div>
+
+          <div class="builder-layout">
+            <article class="card builder-panel">
+              <h3>Workflow settings</h3>
+              <form class="builder-form" id="workflow-form">
+                <label>
+                  Dataset name
+                  <input id="datasetName" name="datasetName" type="text" value="HardHat_Dataset_1k" />
+                </label>
+                <label>
+                  Google Drive file ID
+                  <input id="fileId" name="fileId" type="text" value="1XebIf0c3LDe_KNcPR6KI8Ys4ReNj6knG" />
+                </label>
+                <label>
+                  Class names
+                  <input id="classNames" name="classNames" type="text" value="helmet, head" />
+                </label>
+                <div class="builder-grid">
+                  <label>
+                    Train %
+                    <input id="trainRatio" name="trainRatio" type="number" min="50" max="90" value="80" />
+                  </label>
+                  <label>
+                    Validation %
+                    <input id="valRatio" name="valRatio" type="number" min="5" max="30" value="10" />
+                  </label>
+                  <label>
+                    Test %
+                    <input id="testRatio" name="testRatio" type="number" min="5" max="30" value="10" />
+                  </label>
+                </div>
+                <div class="builder-grid">
+                  <label>
+                    Epochs
+                    <input id="epochs" name="epochs" type="number" min="1" max="200" value="10" />
+                  </label>
+                  <label>
+                    Batch size
+                    <input id="batch" name="batch" type="number" min="1" max="64" value="16" />
+                  </label>
+                  <label>
+                    Image size
+                    <input id="imgSize" name="imgSize" type="number" min="320" max="1280" step="32" value="640" />
+                  </label>
+                </div>
+                <label>
+                  Experiment name
+                  <input id="runName" name="runName" type="text" value="yolo_hardhat_exp" />
+                </label>
+              </form>
+
+              <div class="callout card">
+                <h3>What to know before running</h3>
+                <ul class="checklist">
+                  <li>Use GPU in Google Colab for faster training.</li>
+                  <li>The three split values should add up to 100.</li>
+                  <li>`helmet` and `head` are the default classes for this module.</li>
+                  <li>The generated cells can be pasted into a fresh notebook in order.</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <h3>What happens in this step</h3>
+                <ul class="checklist">
+                  <li>Download the hardhat dataset from Google Drive into Colab.</li>
+                  <li>Split the data into train, validation, and test folders.</li>
+                  <li>Convert XML annotations into YOLO label files.</li>
+                  <li>Create the dataset YAML file that YOLOv5 will read later.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card builder-panel">
+              <div class="builder-output-header">
+                <div>
+                  <h3>Generated workflow</h3>
+                  <p class="builder-caption">Copy one section at a time or copy the whole workflow.</p>
+                </div>
+                <button class="button button-primary copy-button" id="copyAll" type="button">Copy all cells</button>
+              </div>
+
+              <div class="summary-banner" id="summaryBanner"></div>
+
+              <section class="workflow-output">
+                <details class="output-block" open>
+                  <summary class="code-summary">Step 1. Download dataset</summary>
+                  <p class="builder-caption">This cell downloads and unzips the dataset in Colab.</p>
+                  <div class="output-block-header">
+                    <button class="copy-chip" data-copy-target="code-download" type="button">Copy</button>
+                  </div>
+                  <pre><code id="code-download"></code></pre>
+                </details>
+
+                <details class="output-block">
+                  <summary class="code-summary">Step 2. Split data and convert annotations</summary>
+                  <p class="builder-caption">This cell organizes files and converts XML labels into YOLO text labels.</p>
+                  <div class="output-block-header">
+                    <button class="copy-chip" data-copy-target="code-process" type="button">Copy</button>
+                  </div>
+                  <pre><code id="code-process"></code></pre>
+                </details>
+
+                <details class="output-block">
+                  <summary class="code-summary">Step 3. Create YOLO config</summary>
+                  <p class="builder-caption">This cell writes the YAML file that tells YOLO where the data lives.</p>
+                  <div class="output-block-header">
+                    <button class="copy-chip" data-copy-target="code-config" type="button">Copy</button>
+                  </div>
+                  <pre><code id="code-config"></code></pre>
+                </details>
+
+                <details class="output-block">
+                  <summary class="code-summary">Step 4. Install YOLOv5 and train</summary>
+                  <p class="builder-caption">This cell installs YOLOv5 and starts model training.</p>
+                  <div class="output-block-header">
+                    <button class="copy-chip" data-copy-target="code-train" type="button">Copy</button>
+                  </div>
+                  <pre><code id="code-train"></code></pre>
+                </details>
+
+                <details class="output-block">
+                  <summary class="code-summary">Step 5. Validate and test</summary>
+                  <p class="builder-caption">This cell checks model quality and runs inference on unseen images.</p>
+                  <div class="output-block-header">
+                    <button class="copy-chip" data-copy-target="code-test" type="button">Copy</button>
+                  </div>
+                  <pre><code id="code-test"></code></pre>
+                </details>
+              </section>
+            </article>
+          </div>
+
+          <div class="step-actions">
+            <button class="button button-secondary" data-step-prev type="button">Back</button>
+            <button class="button button-primary" data-step-next type="button">Next: Data preview</button>
+          </div>
+        </section>
+
+        <section class="section section-light step-panel" data-step-panel="2">
+          <div class="section-heading">
+            <p class="eyebrow">Interactive preview</p>
+            <h2>Explore the workflow visually</h2>
+            <p>
+              The main workflow uses Google Drive and Colab. This section is an optional visual aid for understanding dataset structure, annotations, labels, and the train-validation-test split.
+            </p>
+          </div>
+
+          <div class="builder-layout">
+            <article class="card builder-panel">
+              <h3>Preview inputs</h3>
+              <div class="callout card">
+                <h3>Primary workflow</h3>
+                <ul class="checklist">
+                  <li>The dataset is downloaded into Colab from Google Drive as part of the workflow configuration step.</li>
+                  <li>Use the folder tree below only if you want a local visual preview of the dataset structure.</li>
+                  <li>Use the sample image and XML preview to understand how annotations become YOLO labels.</li>
+                </ul>
+              </div>
+
+              <label class="upload-zone" for="folderUpload" id="folderDropzone">
+                <span class="upload-title">Optional dataset folder</span>
+                <span class="upload-help">Drop a local dataset folder here, or click to choose one for the folder-tree visualizer.</span>
+                <input id="folderUpload" type="file" webkitdirectory directory multiple />
+              </label>
+
+              <div class="grid grid-three compact-stats">
+                <article class="card stat-card">
+                  <p class="stat-number" id="folderFileCount">0</p>
+                  <p class="stat-label">Files</p>
+                </article>
+                <article class="card stat-card">
+                  <p class="stat-number" id="folderImageCount">0</p>
+                  <p class="stat-label">Images</p>
+                </article>
+                <article class="card stat-card">
+                  <p class="stat-number" id="folderLabelCount">0</p>
+                  <p class="stat-label">Labels/XML</p>
+                </article>
+              </div>
+
+              <div class="card tree-card">
+                <div class="builder-output-header">
+                  <h3>Folder tree</h3>
+                  <p class="builder-caption" id="folderStatus">Optionally upload a folder to generate a dataset tree.</p>
+                </div>
+                <div class="tree-view" id="folderTree">
+                  <p class="builder-caption">No folder loaded yet.</p>
+                </div>
+              </div>
+
+              <div class="upload-stack">
+                <label class="upload-zone" for="imageUpload" id="imageDropzone">
+                  <span class="upload-title">Sample image</span>
+                  <span class="upload-help">Drop a `.png`, `.jpg`, or `.jpeg` file here, or click to choose one.</span>
+                  <input id="imageUpload" type="file" accept=".png,.jpg,.jpeg,image/png,image/jpeg" />
+                </label>
+
+                <label class="upload-zone" for="xmlUpload" id="xmlDropzone">
+                  <span class="upload-title">VOC XML annotation</span>
+                  <span class="upload-help">Drop the matching `.xml` file here to preview bounding boxes and labels.</span>
+                  <input id="xmlUpload" type="file" accept=".xml,text/xml,application/xml" />
+                </label>
+              </div>
+
+              <div class="grid grid-three compact-stats">
+                <article class="card stat-card">
+                  <p class="stat-number" id="trainStat">80%</p>
+                  <p class="stat-label">Train</p>
+                </article>
+                <article class="card stat-card">
+                  <p class="stat-number" id="valStat">10%</p>
+                  <p class="stat-label">Validation</p>
+                </article>
+                <article class="card stat-card">
+                  <p class="stat-number" id="testStat">10%</p>
+                  <p class="stat-label">Test</p>
+                </article>
+              </div>
+
+              <div class="split-visual card">
+                <h3>Split preview</h3>
+                <div class="split-bar" aria-label="Dataset split preview">
+                  <div class="split-segment split-train" id="splitTrainBar"></div>
+                  <div class="split-segment split-val" id="splitValBar"></div>
+                  <div class="split-segment split-test" id="splitTestBar"></div>
+                </div>
+                <p class="builder-caption" id="splitCaption">The dataset will be divided into train, validation, and test subsets.</p>
+              </div>
+            </article>
+
+            <article class="card builder-panel">
+              <h3>Preview output</h3>
+              <div class="preview-stage">
+                <div class="preview-canvas-wrap">
+                  <canvas id="imageCanvas" width="800" height="520" aria-label="Image preview canvas"></canvas>
+                </div>
+                <p class="builder-caption" id="previewStatus">Upload a sample image to preview the workflow visually.</p>
+              </div>
+
+              <div class="grid grid-two preview-details">
+                <article class="card">
+                  <h3>Detected classes</h3>
+                  <ul class="checklist" id="classPreviewList">
+                    <li>Upload an annotation file to inspect object labels.</li>
+                  </ul>
+                </article>
+                <article class="card">
+                  <h3>Annotation summary</h3>
+                  <ul class="checklist" id="annotationSummaryList">
+                    <li>No annotation loaded yet.</li>
+                  </ul>
+                </article>
+              </div>
+
+              <div class="grid grid-two preview-details">
+                <article class="card">
+                  <div class="builder-output-header">
+                    <h3>XML objects</h3>
+                    <button class="copy-chip" data-copy-target="xmlPreview" type="button">Copy</button>
+                  </div>
+                  <pre><code id="xmlPreview">Upload an annotation file to preview object names and coordinates.</code></pre>
+                </article>
+                <article class="card">
+                  <div class="builder-output-header">
+                    <h3>YOLO labels</h3>
+                    <button class="copy-chip" data-copy-target="yoloPreview" type="button">Copy</button>
+                  </div>
+                  <pre><code id="yoloPreview">Upload both an image and XML file to generate YOLO labels.</code></pre>
+                </article>
+              </div>
+            </article>
+          </div>
+
+          <div class="step-actions">
+            <button class="button button-secondary" data-step-prev type="button">Back</button>
+            <button class="button button-primary" data-step-next type="button">Next: Model training</button>
+          </div>
+        </section>
+
+        <section class="section section-light step-panel" data-step-panel="3">
+          <div class="section-heading">
+            <p class="eyebrow">Model training</p>
+            <h2>Understand training, validation, and testing</h2>
+            <p>
+              This final step explains what the model is doing while it learns, what the main metrics mean, and how the training curves usually behave over time.
+            </p>
+          </div>
+
+          <div class="grid grid-three">
+            <article class="card">
+              <h3>Data structure</h3>
+              <pre><code>dataset/
+images/
+annotations/
+train/images
+train/labels
+val/images
+val/labels
+test/images
+test/labels</code></pre>
+            </article>
+            <article class="card">
+              <h3>What validation means</h3>
+              <p>
+                Validation checks model quality during training. It helps us compare learning progress without using the final test images.
+              </p>
+            </article>
+            <article class="card">
+              <h3>What testing means</h3>
+              <p>
+                Testing happens after training. It uses unseen images so you can judge how well the model generalizes.
+              </p>
+            </article>
+          </div>
+
+          <div class="section-heading">
+            <p class="eyebrow">Training process</p>
+            <h2>What happens during model training</h2>
+            <p>
+              During training, the model repeatedly compares its predictions to the labeled training data, calculates error, updates its weights, and then checks progress on the validation set.
+            </p>
+          </div>
+
+          <div class="workflow-strip training-strip" aria-label="Training process">
+            <article class="card workflow-step">
+              <p class="workflow-step-number">A</p>
+              <h3>Load a batch</h3>
+              <p>A small group of training images and labels is loaded into the model.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">B</p>
+              <h3>Predict</h3>
+              <p>The model predicts object boxes, labels, and confidence values.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">C</p>
+              <h3>Calculate loss</h3>
+              <p>The prediction is compared with the true annotation to measure error.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">D</p>
+              <h3>Update weights</h3>
+              <p>The optimizer changes model parameters to reduce error next time.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">E</p>
+              <h3>Validate</h3>
+              <p>The model is checked on validation data to monitor generalization.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">F</p>
+              <h3>Repeat by epoch</h3>
+              <p>This cycle repeats over many epochs until performance improves enough.</p>
+            </article>
+          </div>
+
+          <div class="grid grid-three overview-grid">
+            <article class="card">
+              <h3>Training set</h3>
+              <p>Used directly to teach the model from labeled examples.</p>
+            </article>
+            <article class="card">
+              <h3>Validation set</h3>
+              <p>Used during training to check whether the model is improving without overfitting.</p>
+            </article>
+            <article class="card">
+              <h3>Test set</h3>
+              <p>Used only after training to estimate final performance on unseen data.</p>
+            </article>
+          </div>
+
+          <div class="section-heading">
+            <p class="eyebrow">After training</p>
+            <h2>What files you get after training finishes</h2>
+            <p>
+              When training ends, YOLOv5 saves the learned model and the training history. These output files are what you use later for validation, testing, and inference on new images.
+            </p>
+          </div>
+
+          <div class="grid grid-three overview-grid">
+            <article class="card">
+              <h3><code>best.pt</code></h3>
+              <p>
+                This is the most important output file. It stores the version of the model that performed best on the validation set during training.
+              </p>
+              <ul class="checklist">
+                <li>Use this file for testing</li>
+                <li>Use this file for detection on new images</li>
+                <li>Usually the main file to keep</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3><code>last.pt</code></h3>
+              <p>
+                This stores the model from the final training epoch. It is useful if you want to resume training or compare the final epoch to the best validation checkpoint.
+              </p>
+              <ul class="checklist">
+                <li>Represents the final training state</li>
+                <li>Useful for continuing training</li>
+                <li>Not always the best-performing file</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Training plots and logs</h3>
+              <p>
+                YOLOv5 also saves charts and metrics such as loss, precision, recall, and mAP so you can inspect how learning changed across epochs.
+              </p>
+              <ul class="checklist">
+                <li>Helps explain model improvement</li>
+                <li>Shows overfitting or stability</li>
+                <li>Supports class discussion and reporting</li>
+              </ul>
+            </article>
+          </div>
+
+          <article class="card">
+            <h3>Typical output folder after training</h3>
+            <pre><code>runs/train/yolo_hardhat_exp/
+weights/best.pt
+weights/last.pt
+results.png
+results.csv
+confusion_matrix.png</code></pre>
+            <p class="builder-caption">The exact folder name depends on the experiment name you choose during training.</p>
+          </article>
+
+          <div class="grid grid-two overview-grid">
+            <article class="card">
+              <h3>Real annotation example from Module 5</h3>
+              <figure class="annotated-example">
+                <div class="annotated-image">
+                  <img src="../media/module-5-hardhat-example.png" alt="Construction crew image annotated with helmet and head bounding boxes" width="416" height="416" />
+                  <span class="annotation-box annotation-helmet annotation-h1" data-label="helmet" aria-label="helmet annotation"></span>
+                  <span class="annotation-box annotation-helmet annotation-h2" data-label="helmet" aria-label="helmet annotation"></span>
+                  <span class="annotation-box annotation-helmet annotation-h3" data-label="helmet" aria-label="helmet annotation"></span>
+                  <span class="annotation-box annotation-head annotation-n1" data-label="head" aria-label="head annotation"></span>
+                  <span class="annotation-box annotation-head annotation-n2" data-label="head" aria-label="head annotation"></span>
+                </div>
+                <figcaption>
+                  This uses the real example image and XML boxes from Module 5. The model learns from many labeled examples like this during training.
+                </figcaption>
+              </figure>
+            </article>
+            <article class="card">
+              <h3>How this connects to weights</h3>
+              <p>
+                Every time the model sees labeled examples like this, it adjusts its internal weights so it becomes better at recognizing the visual patterns linked to <code>helmet</code> and <code>head</code>.
+              </p>
+              <ul class="checklist">
+                <li>The image provides the visual pattern</li>
+                <li>The box provides the object location</li>
+                <li>The class label provides the meaning</li>
+                <li>The learned weights store what the model extracts from many such examples</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="grid grid-two overview-grid">
+            <article class="card">
+              <h3>What are model weights?</h3>
+              <p>
+                Model weights are the learned numbers inside the neural network. During training, the model keeps adjusting these numbers so some visual patterns matter more and others matter less.
+              </p>
+              <figure class="weights-figure">
+                <svg viewBox="0 0 720 300" role="img" aria-label="Illustration of model weights as learned numeric values connected to visual features and saved model files">
+                  <rect x="20" y="28" width="210" height="236" rx="18" fill="#f8fafc" stroke="#dbe3ec" />
+                  <text x="44" y="62" fill="#0f172a" font-size="22" font-weight="700">Example Weights</text>
+                  <text x="44" y="92" fill="#475569" font-size="15">A model stores many learned numbers</text>
+
+                  <rect x="44" y="116" width="54" height="38" rx="10" fill="#0f4c81" opacity="0.92" />
+                  <rect x="110" y="116" width="54" height="38" rx="10" fill="#2e7dbd" opacity="0.8" />
+                  <rect x="176" y="116" width="30" height="38" rx="10" fill="#cbd5e1" />
+
+                  <rect x="44" y="166" width="42" height="38" rx="10" fill="#0f766e" opacity="0.88" />
+                  <rect x="98" y="166" width="42" height="38" rx="10" fill="#94a3b8" />
+                  <rect x="152" y="166" width="42" height="38" rx="10" fill="#b45309" opacity="0.78" />
+
+                  <text x="58" y="140" fill="#ffffff" font-size="14">0.92</text>
+                  <text x="124" y="140" fill="#ffffff" font-size="14">0.71</text>
+                  <text x="182" y="140" fill="#334155" font-size="14">...</text>
+                  <text x="54" y="190" fill="#ffffff" font-size="14">0.84</text>
+                  <text x="108" y="190" fill="#334155" font-size="14">0.12</text>
+                  <text x="162" y="190" fill="#ffffff" font-size="14">0.66</text>
+
+                  <line x1="230" y1="90" x2="286" y2="90" stroke="#94a3b8" stroke-width="3" />
+                  <line x1="230" y1="150" x2="286" y2="150" stroke="#94a3b8" stroke-width="3" />
+                  <line x1="230" y1="210" x2="286" y2="210" stroke="#94a3b8" stroke-width="3" />
+
+                  <rect x="286" y="28" width="190" height="236" rx="18" fill="#f8fafc" stroke="#dbe3ec" />
+                  <text x="310" y="62" fill="#0f172a" font-size="22" font-weight="700">What They Learn</text>
+                  <text x="310" y="95" fill="#0f172a" font-size="17" font-weight="700">Strong weights</text>
+                  <text x="310" y="118" fill="#475569" font-size="15">helmet curve</text>
+                  <text x="310" y="141" fill="#475569" font-size="15">head boundary</text>
+                  <text x="310" y="164" fill="#475569" font-size="15">object shape</text>
+                  <text x="310" y="196" fill="#0f172a" font-size="17" font-weight="700">Weak weights</text>
+                  <text x="310" y="219" fill="#475569" font-size="15">background noise</text>
+                  <text x="310" y="242" fill="#475569" font-size="15">unhelpful pixels</text>
+
+                  <line x1="476" y1="146" x2="532" y2="146" stroke="#94a3b8" stroke-width="3" />
+
+                  <rect x="532" y="28" width="168" height="236" rx="18" fill="#f8fafc" stroke="#dbe3ec" />
+                  <text x="556" y="62" fill="#0f172a" font-size="22" font-weight="700">Saved Output</text>
+                  <rect x="556" y="94" width="120" height="42" rx="12" fill="#0f4c81" />
+                  <rect x="556" y="148" width="120" height="42" rx="12" fill="#0f766e" />
+                  <text x="582" y="120" fill="#ffffff" font-size="16" font-weight="700">best.pt</text>
+                  <text x="586" y="174" fill="#ffffff" font-size="16" font-weight="700">last.pt</text>
+                  <text x="556" y="220" fill="#475569" font-size="15">Weights saved after training</text>
+                  <text x="556" y="242" fill="#475569" font-size="15">for testing and detection</text>
+                </svg>
+                <figcaption>
+                  Simplified view: real models contain millions of learned values, but the idea is the same. Larger useful weights strengthen important visual cues, while weaker weights reduce less helpful ones.
+                </figcaption>
+              </figure>
+            </article>
+            <article class="card">
+              <h3>Real picture example with weight values</h3>
+              <p>
+                Using the real Module 5 image, we can imagine the model giving stronger learned weight values to useful patterns and weaker values to less useful patterns.
+              </p>
+              <div class="weight-example-list">
+                <div class="weight-example-item">
+                  <span class="weight-chip weight-strong">0.92</span>
+                  <div>
+                    <strong>Helmet edge and curve</strong>
+                    <p>The model learns that rounded helmet boundaries are highly useful for the <code>helmet</code> class.</p>
+                  </div>
+                </div>
+                <div class="weight-example-item">
+                  <span class="weight-chip weight-strong">0.84</span>
+                  <div>
+                    <strong>Head shape near shoulders</strong>
+                    <p>The model learns that head position and shape help separate <code>head</code> from background clutter.</p>
+                  </div>
+                </div>
+                <div class="weight-example-item">
+                  <span class="weight-chip weight-medium">0.66</span>
+                  <div>
+                    <strong>Worker posture and nearby context</strong>
+                    <p>These patterns can help, but usually matter less than the direct object shape.</p>
+                  </div>
+                </div>
+                <div class="weight-example-item">
+                  <span class="weight-chip weight-weak">0.12</span>
+                  <div>
+                    <strong>Background pixels</strong>
+                    <p>Unhelpful background texture should get much weaker importance after training.</p>
+                  </div>
+                </div>
+              </div>
+              <p class="builder-caption">
+                These values are illustrative, not extracted from the actual YOLOv5 checkpoint. They are shown here to help connect real image features to the idea of learned weights.
+              </p>
+            </article>
+          </div>
+
+          <div class="grid grid-three overview-grid">
+            <article class="card">
+              <h3>Before training</h3>
+              <p>The model starts with generic pretrained knowledge, but it is not yet specialized for this hardhat dataset.</p>
+            </article>
+            <article class="card">
+              <h3>During training</h3>
+              <p>The weights are adjusted after each batch so predictions move closer to the labeled answers.</p>
+            </article>
+            <article class="card">
+              <h3>After training</h3>
+              <p>The saved weight files contain the learned version of the model that can now be reused for validation, testing, and detection.</p>
+            </article>
+          </div>
+
+          <div class="builder-layout dashboard-layout">
+            <article class="card builder-panel">
+              <div class="builder-output-header">
+                <div>
+                  <h3>Mock training dashboard</h3>
+                  <p class="builder-caption">Run a browser-side demo that simulates the training curves from your current settings.</p>
+                </div>
+                <div class="hero-actions">
+                  <button class="button button-primary" id="runDashboard" type="button">Run dashboard</button>
+                  <button class="button button-secondary" id="resetDashboard" type="button">Reset</button>
+                </div>
+              </div>
+
+              <div class="grid grid-three compact-stats">
+                <article class="card stat-card">
+                  <p class="stat-number" id="currentEpoch">0</p>
+                  <p class="stat-label">Epoch</p>
+                </article>
+                <article class="card stat-card">
+                  <p class="stat-number" id="mapStat">0.00</p>
+                  <p class="stat-label">mAP@0.5</p>
+                </article>
+                <article class="card stat-card">
+                  <p class="stat-number" id="precisionStat">0.00</p>
+                  <p class="stat-label">Precision</p>
+                </article>
+              </div>
+
+              <div class="grid grid-three compact-stats">
+                <article class="card stat-card">
+                  <p class="stat-number" id="recallStat">0.00</p>
+                  <p class="stat-label">Recall</p>
+                </article>
+                <article class="card stat-card">
+                  <p class="stat-number" id="trainLossStat">0.00</p>
+                  <p class="stat-label">Train loss</p>
+                </article>
+                <article class="card stat-card">
+                  <p class="stat-number" id="valLossStat">0.00</p>
+                  <p class="stat-label">Val loss</p>
+                </article>
+              </div>
+
+              <div class="summary-banner" id="dashboardStatus">
+                Click <strong>Run dashboard</strong> to simulate a training session with the current settings.
+              </div>
+            </article>
+
+            <article class="card builder-panel">
+              <div class="card">
+                <h3>Loss curves</h3>
+                <div class="chart-wrap">
+                  <canvas id="lossChart" width="820" height="320" aria-label="Mock loss chart"></canvas>
+                </div>
+              </div>
+              <div class="card">
+                <h3>Validation metrics</h3>
+                <div class="chart-wrap">
+                  <canvas id="metricChart" width="820" height="320" aria-label="Mock metric chart"></canvas>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="step-actions">
+            <button class="button button-secondary" data-step-prev type="button">Back</button>
+            <button class="button button-primary" data-step-next type="button">Next: Testing</button>
+          </div>
+        </section>
+
+        <section class="section section-light step-panel" data-step-panel="4">
+          <div class="section-heading">
+            <p class="eyebrow">Testing</p>
+            <h2>Preview the testing workflow on a new image</h2>
+            <p>
+              <strong>Demo only:</strong> this browser preview illustrates what testing on unseen images looks like, but it does not run the trained YOLO model. Upload a new image to see example boxes and confidence scores here, then use the Colab testing cell to generate the real detection results.
+            </p>
+          </div>
+
+          <div class="builder-layout">
+            <article class="card builder-panel">
+              <h3>Testing input</h3>
+              <label class="upload-zone" for="testImageUpload" id="testImageDropzone">
+                <span class="upload-title">New test image</span>
+                <span class="upload-help">Drop a new `.png`, `.jpg`, or `.jpeg` image here, or click to choose one.</span>
+                <input id="testImageUpload" type="file" accept=".png,.jpg,.jpeg,image/png,image/jpeg" />
+              </label>
+
+              <div class="callout card">
+                <h3>What this step shows</h3>
+                <ul class="checklist">
+                  <li><strong>Demo only:</strong> the webpage draws example detections for teaching the workflow, not real model predictions.</li>
+                  <li>Testing uses images the model did not see during training.</li>
+                  <li>The browser demo simulates a prediction view so the testing stage is easier to understand.</li>
+                  <li>The real trained model still runs in Colab when you execute the testing cell.</li>
+                </ul>
+              </div>
+
+              <div class="hero-actions">
+                <button class="button button-primary" id="runTestDetection" type="button">Run detection demo</button>
+                <button class="button button-secondary" id="resetTestDetection" type="button">Reset</button>
+              </div>
+
+              <ul class="checklist" id="testResultList">
+                <li>Upload a new image, then run the detection demo.</li>
+              </ul>
+            </article>
+
+            <article class="card builder-panel">
+              <h3>Testing output</h3>
+              <div class="preview-stage">
+                <div class="preview-canvas-wrap">
+                  <canvas id="testCanvas" width="800" height="520" aria-label="Testing preview canvas"></canvas>
+                </div>
+                <p class="builder-caption" id="testStatus">Upload a new image to begin testing.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="step-actions">
+            <button class="button button-secondary" data-step-prev type="button">Back</button>
+            <button class="button button-primary" data-step-target="0" type="button">Return to overview</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-layout">
+        <div>
+          <p class="footer-title">AI in Construction</p>
+          <p>Course materials, Colab-ready notebooks, assignments, datasets, and project examples.</p>
+        </div>
+        <div>
+          <p class="footer-title">Quick links</p>
+          <ul class="footer-links">
+            <li><a href="./index.html">Module hub</a></li>
+            <li><a href="./deep-learning.html">Module 5 overview</a></li>
+            <li><a href="../guidelines.html">Notebook guide</a></li>
+            <li><a href="https://github.com/ruoxinx/CMGT-40095-50095">Repository</a></li>
+            <li><a href="mailto:rxiong3@kent.edu">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const form = document.getElementById("workflow-form");
+      const summaryBanner = document.getElementById("summaryBanner");
+      const startGuide = document.getElementById("startGuide");
+      const stepChips = Array.from(document.querySelectorAll(".step-chip"));
+      const stepPanels = Array.from(document.querySelectorAll(".step-panel"));
+      const folderUpload = document.getElementById("folderUpload");
+      const folderDropzone = document.getElementById("folderDropzone");
+      const folderTree = document.getElementById("folderTree");
+      const folderStatus = document.getElementById("folderStatus");
+      const folderFileCount = document.getElementById("folderFileCount");
+      const folderImageCount = document.getElementById("folderImageCount");
+      const folderLabelCount = document.getElementById("folderLabelCount");
+      const imageUpload = document.getElementById("imageUpload");
+      const xmlUpload = document.getElementById("xmlUpload");
+      const previewStatus = document.getElementById("previewStatus");
+      const classPreviewList = document.getElementById("classPreviewList");
+      const annotationSummaryList = document.getElementById("annotationSummaryList");
+      const xmlPreview = document.getElementById("xmlPreview");
+      const yoloPreview = document.getElementById("yoloPreview");
+      const trainStat = document.getElementById("trainStat");
+      const valStat = document.getElementById("valStat");
+      const testStat = document.getElementById("testStat");
+      const splitTrainBar = document.getElementById("splitTrainBar");
+      const splitValBar = document.getElementById("splitValBar");
+      const splitTestBar = document.getElementById("splitTestBar");
+      const splitCaption = document.getElementById("splitCaption");
+      const canvas = document.getElementById("imageCanvas");
+      const ctx = canvas.getContext("2d");
+      const lossChart = document.getElementById("lossChart");
+      const lossCtx = lossChart.getContext("2d");
+      const metricChart = document.getElementById("metricChart");
+      const metricCtx = metricChart.getContext("2d");
+      const testImageUpload = document.getElementById("testImageUpload");
+      const testImageDropzone = document.getElementById("testImageDropzone");
+      const testCanvas = document.getElementById("testCanvas");
+      const testCtx = testCanvas.getContext("2d");
+      const testStatus = document.getElementById("testStatus");
+      const testResultList = document.getElementById("testResultList");
+      const runTestDetection = document.getElementById("runTestDetection");
+      const resetTestDetection = document.getElementById("resetTestDetection");
+      const imageDropzone = document.getElementById("imageDropzone");
+      const xmlDropzone = document.getElementById("xmlDropzone");
+      const runDashboard = document.getElementById("runDashboard");
+      const resetDashboard = document.getElementById("resetDashboard");
+      const dashboardStatus = document.getElementById("dashboardStatus");
+      const currentEpoch = document.getElementById("currentEpoch");
+      const mapStat = document.getElementById("mapStat");
+      const precisionStat = document.getElementById("precisionStat");
+      const recallStat = document.getElementById("recallStat");
+      const trainLossStat = document.getElementById("trainLossStat");
+      const valLossStat = document.getElementById("valLossStat");
+      const previewState = {
+        image: null,
+        imageName: "",
+        imageWidth: 0,
+        imageHeight: 0,
+        boxes: [],
+        xmlName: ""
+      };
+      const dashboardState = {
+        timer: null,
+        data: null,
+        index: 0
+      };
+      const testState = {
+        image: null,
+        imageName: "",
+        imageWidth: 0,
+        imageHeight: 0,
+        detections: []
+      };
+
+      const fields = {
+        datasetName: document.getElementById("datasetName"),
+        fileId: document.getElementById("fileId"),
+        classNames: document.getElementById("classNames"),
+        trainRatio: document.getElementById("trainRatio"),
+        valRatio: document.getElementById("valRatio"),
+        testRatio: document.getElementById("testRatio"),
+        epochs: document.getElementById("epochs"),
+        batch: document.getElementById("batch"),
+        imgSize: document.getElementById("imgSize"),
+        runName: document.getElementById("runName")
+      };
+
+      const outputIds = {
+        download: document.getElementById("code-download"),
+        process: document.getElementById("code-process"),
+        config: document.getElementById("code-config"),
+        train: document.getElementById("code-train"),
+        test: document.getElementById("code-test")
+      };
+
+      function sanitizeName(value) {
+        return value.trim().replace(/\s+/g, "_");
+      }
+
+      function toClassArray(value) {
+        return value
+          .split(",")
+          .map((item) => item.trim())
+          .filter(Boolean);
+      }
+
+      function getSettings() {
+        const classNames = toClassArray(fields.classNames.value || "helmet, head");
+        return {
+          datasetName: sanitizeName(fields.datasetName.value || "HardHat_Dataset_1k"),
+          fileId: fields.fileId.value.trim() || "1XebIf0c3LDe_KNcPR6KI8Ys4ReNj6knG",
+          classNames: classNames.length ? classNames : ["helmet", "head"],
+          trainRatio: Number(fields.trainRatio.value || 80),
+          valRatio: Number(fields.valRatio.value || 10),
+          testRatio: Number(fields.testRatio.value || 10),
+          epochs: Number(fields.epochs.value || 10),
+          batch: Number(fields.batch.value || 16),
+          imgSize: Number(fields.imgSize.value || 640),
+          runName: sanitizeName(fields.runName.value || "yolo_hardhat_exp")
+        };
+      }
+
+      function goToStep(stepIndex) {
+        stepPanels.forEach((panel, index) => {
+          panel.classList.toggle("is-active", index === stepIndex);
+        });
+
+        stepChips.forEach((chip, index) => {
+          chip.classList.toggle("is-active", index === stepIndex);
+        });
+
+        stepPanels[stepIndex]?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function renderWorkflow() {
+        const settings = getSettings();
+        const totalRatio = settings.trainRatio + settings.valRatio + settings.testRatio;
+        const classList = JSON.stringify(settings.classNames);
+        const lastBoundary = ((settings.trainRatio + settings.valRatio) / 100).toFixed(2);
+        const trainBoundary = (settings.trainRatio / 100).toFixed(2);
+
+        trainStat.textContent = `${settings.trainRatio}%`;
+        valStat.textContent = `${settings.valRatio}%`;
+        testStat.textContent = `${settings.testRatio}%`;
+        splitTrainBar.style.width = `${Math.max(settings.trainRatio, 0)}%`;
+        splitValBar.style.width = `${Math.max(settings.valRatio, 0)}%`;
+        splitTestBar.style.width = `${Math.max(settings.testRatio, 0)}%`;
+        splitCaption.textContent = totalRatio === 100
+          ? `The dataset will be divided into ${settings.trainRatio}% train, ${settings.valRatio}% validation, and ${settings.testRatio}% test data.`
+          : `Current split totals ${totalRatio}%. Update the values so the workflow uses a full 100% split.`;
+
+        summaryBanner.innerHTML = `
+          <strong>Workflow summary:</strong> ${settings.datasetName} with ${settings.classNames.length} classes (${settings.classNames.join(", ")}),
+          split ${settings.trainRatio}% / ${settings.valRatio}% / ${settings.testRatio}%,
+          train for ${settings.epochs} epochs with batch size ${settings.batch} at ${settings.imgSize} px.
+          ${totalRatio === 100 ? "" : '<span class="warning-text">The split values should add up to 100.</span>'}
+        `;
+
+        outputIds.download.textContent = `!pip install -q gdown\n\nimport gdown\n\nfile_id = "${settings.fileId}"\nurl = f"https://drive.google.com/uc?id={file_id}"\nzip_path = "/content/${settings.datasetName}.zip"\nextract_path = "/content/${settings.datasetName}"\n\ngdown.download(url, zip_path, quiet=False)\n!unzip -q "$zip_path" -d "$extract_path"\nprint(f"Dataset ready at {extract_path}")`;
+
+        outputIds.process.textContent = `import os\nimport random\nimport shutil\nimport xml.etree.ElementTree as ET\n\nrandom.seed(42)\nbase_dir = "/content/${settings.datasetName}"\norig_images_dir = os.path.join(base_dir, "images")\norig_ann_dir = os.path.join(base_dir, "annotations")\nclasses = ${classList}\nsplits = ["train", "val", "test"]\n\nfor split in splits:\n    os.makedirs(os.path.join(base_dir, split, "images"), exist_ok=True)\n    os.makedirs(os.path.join(base_dir, split, "labels"), exist_ok=True)\n\nall_images = [f for f in os.listdir(orig_images_dir) if f.endswith(".png")]\nrandom.shuffle(all_images)\n\ntrain_end = int(${trainBoundary} * len(all_images))\nval_end = int(${lastBoundary} * len(all_images))\n\ntrain_imgs = all_images[:train_end]\nval_imgs = all_images[train_end:val_end]\ntest_imgs = all_images[val_end:]\n\nprint(f"Train: {len(train_imgs)} | Val: {len(val_imgs)} | Test: {len(test_imgs)}")\n\ndef convert_xml_to_yolo(xml_file, classes):\n    tree = ET.parse(xml_file)\n    root = tree.getroot()\n    size = root.find("size")\n    width = float(size.find("width").text)\n    height = float(size.find("height").text)\n    yolo_lines = []\n    for obj in root.findall("object"):\n        cls = obj.find("name").text\n        if cls not in classes:\n            continue\n        cls_id = classes.index(cls)\n        box = obj.find("bndbox")\n        xmin = float(box.find("xmin").text)\n        ymin = float(box.find("ymin").text)\n        xmax = float(box.find("xmax").text)\n        ymax = float(box.find("ymax").text)\n        x_center = ((xmin + xmax) / 2) / width\n        y_center = ((ymin + ymax) / 2) / height\n        bbox_width = (xmax - xmin) / width\n        bbox_height = (ymax - ymin) / height\n        yolo_lines.append(f"{cls_id} {x_center:.6f} {y_center:.6f} {bbox_width:.6f} {bbox_height:.6f}")\n    return yolo_lines\n\ndef copy_and_convert(file_list, split_name):\n    dest_img = os.path.join(base_dir, split_name, "images")\n    dest_lbl = os.path.join(base_dir, split_name, "labels")\n    for fname in file_list:\n        shutil.copy(os.path.join(orig_images_dir, fname), dest_img)\n        stem = os.path.splitext(fname)[0]\n        xml_path = os.path.join(orig_ann_dir, stem + ".xml")\n        if os.path.exists(xml_path):\n            yolo_lines = convert_xml_to_yolo(xml_path, classes)\n            with open(os.path.join(dest_lbl, stem + ".txt"), "w", encoding="utf-8") as f:\n                f.write("\\n".join(yolo_lines))\n\ncopy_and_convert(train_imgs, "train")\ncopy_and_convert(val_imgs, "val")\ncopy_and_convert(test_imgs, "test")\nprint("Dataset split and annotation conversion complete.")`;
+
+        outputIds.config.textContent = `import os\nimport yaml\n\nbase_dir = "/content/${settings.datasetName}"\nconfig_data = {\n    "train": os.path.join(base_dir, "train", "images"),\n    "val": os.path.join(base_dir, "val", "images"),\n    "test": os.path.join(base_dir, "test", "images"),\n    "names": ${classList},\n    "nc": ${settings.classNames.length}\n}\n\nwith open("/content/hardhat.yaml", "w", encoding="utf-8") as f:\n    yaml.dump(config_data, f, sort_keys=False)\n\nprint("Created /content/hardhat.yaml")`;
+
+        outputIds.train.textContent = `!git clone https://github.com/ultralytics/yolov5.git\n%cd /content/yolov5\n!pip install -qr requirements.txt\n\n!python train.py --img ${settings.imgSize} --batch ${settings.batch} --epochs ${settings.epochs} --data /content/hardhat.yaml --weights yolov5s.pt --name ${settings.runName}`;
+
+        outputIds.test.textContent = `%cd /content/yolov5\n\n# Validate the trained model\n!python val.py --weights runs/train/${settings.runName}/weights/best.pt --data /content/hardhat.yaml --img ${settings.imgSize}\n\n# Test on unseen images\n!python detect.py --weights runs/train/${settings.runName}/weights/best.pt --img ${settings.imgSize} --conf 0.25 --save-txt --source /content/${settings.datasetName}/test/images --name ${settings.runName}_test\n\nprint("Check runs/train/${settings.runName} for metrics and runs/detect/${settings.runName}_test for predictions.")`;
+        updateYoloPreview();
+      }
+
+      function clearCanvasMessage(message) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#f8fafc";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#64748b";
+        ctx.font = "20px Avenir Next, Segoe UI, sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(message, canvas.width / 2, canvas.height / 2);
+      }
+
+      function drawPreview() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (!previewState.image) {
+          clearCanvasMessage("Upload a sample image to begin.");
+          return;
+        }
+
+        const scale = Math.min(canvas.width / previewState.imageWidth, canvas.height / previewState.imageHeight);
+        const drawWidth = previewState.imageWidth * scale;
+        const drawHeight = previewState.imageHeight * scale;
+        const offsetX = (canvas.width - drawWidth) / 2;
+        const offsetY = (canvas.height - drawHeight) / 2;
+
+        ctx.fillStyle = "#f8fafc";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(previewState.image, offsetX, offsetY, drawWidth, drawHeight);
+
+        previewState.boxes.forEach((box, index) => {
+          const x = offsetX + box.xmin * scale;
+          const y = offsetY + box.ymin * scale;
+          const width = (box.xmax - box.xmin) * scale;
+          const height = (box.ymax - box.ymin) * scale;
+          const color = index % 2 === 0 ? "#0f766e" : "#b45309";
+
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 3;
+          ctx.strokeRect(x, y, width, height);
+
+          ctx.font = "16px Avenir Next, Segoe UI, sans-serif";
+          const labelWidth = Math.max(ctx.measureText(box.label).width + 24, 72);
+          ctx.fillStyle = color;
+          ctx.fillRect(x, Math.max(y - 28, 0), labelWidth, 28);
+          ctx.fillStyle = "#ffffff";
+          ctx.textAlign = "left";
+          ctx.fillText(box.label, x + 10, Math.max(y - 9, 18));
+        });
+      }
+
+      function boxesToYoloLines() {
+        if (!previewState.imageWidth || !previewState.imageHeight || !previewState.boxes.length) {
+          return [];
+        }
+
+        const classNames = getSettings().classNames;
+        return previewState.boxes
+          .filter((box) => classNames.includes(box.label))
+          .map((box) => {
+            const clsId = classNames.indexOf(box.label);
+            const xCenter = ((box.xmin + box.xmax) / 2) / previewState.imageWidth;
+            const yCenter = ((box.ymin + box.ymax) / 2) / previewState.imageHeight;
+            const boxWidth = (box.xmax - box.xmin) / previewState.imageWidth;
+            const boxHeight = (box.ymax - box.ymin) / previewState.imageHeight;
+            return `${clsId} ${xCenter.toFixed(6)} ${yCenter.toFixed(6)} ${boxWidth.toFixed(6)} ${boxHeight.toFixed(6)}`;
+          });
+      }
+
+      function updateYoloPreview() {
+        if (!previewState.boxes.length) {
+          xmlPreview.textContent = "Upload an annotation file to preview object names and coordinates.";
+          yoloPreview.textContent = "Upload both an image and XML file to generate YOLO labels.";
+          return;
+        }
+
+        xmlPreview.textContent = previewState.boxes
+          .map((box) => `${box.label}: xmin=${box.xmin}, ymin=${box.ymin}, xmax=${box.xmax}, ymax=${box.ymax}`)
+          .join("\n");
+
+        const yoloLines = boxesToYoloLines();
+        yoloPreview.textContent = yoloLines.length
+          ? yoloLines.join("\n")
+          : "No YOLO labels could be generated. Check that the class names match the workflow settings.";
+      }
+
+      function updateAnnotationPanels() {
+        if (!previewState.boxes.length) {
+          classPreviewList.innerHTML = "<li>Upload an annotation file to inspect object labels.</li>";
+          annotationSummaryList.innerHTML = `
+            <li>${previewState.imageName ? `Image file: ${previewState.imageName}` : "No image loaded yet."}</li>
+            <li>No annotation loaded yet.</li>
+            <li>Supported format: Pascal VOC XML.</li>
+          `;
+          updateYoloPreview();
+          return;
+        }
+
+        const counts = {};
+        previewState.boxes.forEach((box) => {
+          counts[box.label] = (counts[box.label] || 0) + 1;
+        });
+
+        classPreviewList.innerHTML = Object.entries(counts)
+          .map(([label, count]) => `<li><strong>${label}</strong>: ${count} object${count === 1 ? "" : "s"}</li>`)
+          .join("");
+
+        annotationSummaryList.innerHTML = `
+          <li>Image file: ${previewState.imageName || "Not loaded"}</li>
+          <li>Annotation file: ${previewState.xmlName || "Loaded"}</li>
+          <li>Total boxes: ${previewState.boxes.length}</li>
+          <li>Image size: ${previewState.imageWidth} x ${previewState.imageHeight}</li>
+        `;
+        updateYoloPreview();
+      }
+
+      function parseXmlAnnotations(xmlText) {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, "application/xml");
+        const errorNode = xmlDoc.querySelector("parsererror");
+        if (errorNode) {
+          throw new Error("Unable to read the XML annotation file.");
+        }
+
+        return Array.from(xmlDoc.querySelectorAll("object")).map((node) => ({
+          label: node.querySelector("name")?.textContent?.trim() || "object",
+          xmin: Number(node.querySelector("xmin")?.textContent || 0),
+          ymin: Number(node.querySelector("ymin")?.textContent || 0),
+          xmax: Number(node.querySelector("xmax")?.textContent || 0),
+          ymax: Number(node.querySelector("ymax")?.textContent || 0)
+        }));
+      }
+
+      function handleImageFile(file) {
+        if (!file) {
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = () => {
+          const img = new Image();
+          img.onload = () => {
+            previewState.image = img;
+            previewState.imageName = file.name;
+            previewState.imageWidth = img.width;
+            previewState.imageHeight = img.height;
+            previewStatus.textContent = `Previewing ${file.name}. ${previewState.boxes.length ? "Bounding boxes are drawn from the uploaded XML annotation." : "Upload an XML file to draw bounding boxes."}`;
+            drawPreview();
+            updateAnnotationPanels();
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function handleXmlFile(file) {
+        if (!file) {
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            previewState.boxes = parseXmlAnnotations(reader.result);
+            previewState.xmlName = file.name;
+            previewStatus.textContent = previewState.image
+              ? `Previewing ${previewState.imageName} with ${previewState.boxes.length} annotated object${previewState.boxes.length === 1 ? "" : "s"}.`
+              : `Loaded ${file.name}. Upload the matching image to draw the annotation boxes.`;
+            drawPreview();
+            updateAnnotationPanels();
+          } catch (error) {
+            previewState.boxes = [];
+            previewState.xmlName = "";
+            previewStatus.textContent = "The XML file could not be read. Please upload a Pascal VOC annotation file.";
+            drawPreview();
+            updateAnnotationPanels();
+          }
+        };
+        reader.readAsText(file);
+      }
+
+      function buildTree(paths) {
+        const root = {};
+
+        paths.forEach((path) => {
+          const parts = path.split("/").filter(Boolean);
+          let node = root;
+          parts.forEach((part, index) => {
+            if (!node[part]) {
+              node[part] = index === parts.length - 1 ? null : {};
+            }
+            if (node[part] !== null) {
+              node = node[part];
+            }
+          });
+        });
+
+        return root;
+      }
+
+      function renderTreeNode(node) {
+        const list = document.createElement("ul");
+        list.className = "tree-list";
+
+        Object.keys(node)
+          .sort((a, b) => {
+            const aIsFile = node[a] === null;
+            const bIsFile = node[b] === null;
+            if (aIsFile !== bIsFile) {
+              return aIsFile ? 1 : -1;
+            }
+            return a.localeCompare(b);
+          })
+          .forEach((entry) => {
+            const item = document.createElement("li");
+            item.className = node[entry] === null ? "tree-file" : "tree-folder";
+            item.textContent = entry;
+            if (node[entry] !== null) {
+              item.appendChild(renderTreeNode(node[entry]));
+            }
+            list.appendChild(item);
+          });
+
+        return list;
+      }
+
+      function handleFolderFiles(fileList) {
+        const files = Array.from(fileList || []);
+        if (!files.length) {
+          return;
+        }
+
+        const paths = files.map((file) => (file.webkitRelativePath || file.name).replace(/\\/g, "/"));
+        const imageCount = files.filter((file) => /\.(png|jpg|jpeg)$/i.test(file.name)).length;
+        const labelCount = files.filter((file) => /\.(xml|txt)$/i.test(file.name)).length;
+
+        folderFileCount.textContent = String(files.length);
+        folderImageCount.textContent = String(imageCount);
+        folderLabelCount.textContent = String(labelCount);
+        folderStatus.textContent = `Loaded ${files.length} file${files.length === 1 ? "" : "s"} from the selected dataset folder.`;
+
+        folderTree.innerHTML = "";
+        folderTree.appendChild(renderTreeNode(buildTree(paths)));
+      }
+
+      function drawEmptyChart(chartCtx, chartCanvas, message) {
+        chartCtx.clearRect(0, 0, chartCanvas.width, chartCanvas.height);
+        chartCtx.fillStyle = "#f8fafc";
+        chartCtx.fillRect(0, 0, chartCanvas.width, chartCanvas.height);
+        chartCtx.fillStyle = "#64748b";
+        chartCtx.font = "18px Avenir Next, Segoe UI, sans-serif";
+        chartCtx.textAlign = "center";
+        chartCtx.fillText(message, chartCanvas.width / 2, chartCanvas.height / 2);
+      }
+
+      function drawLineChart(chartCtx, chartCanvas, series, colors, maxEpochs) {
+        const width = chartCanvas.width;
+        const height = chartCanvas.height;
+        const padding = 42;
+        const chartWidth = width - padding * 2;
+        const chartHeight = height - padding * 2;
+
+        chartCtx.clearRect(0, 0, width, height);
+        chartCtx.fillStyle = "#ffffff";
+        chartCtx.fillRect(0, 0, width, height);
+        chartCtx.strokeStyle = "#dbe3ec";
+        chartCtx.lineWidth = 1;
+
+        for (let i = 0; i <= 4; i += 1) {
+          const y = padding + (chartHeight / 4) * i;
+          chartCtx.beginPath();
+          chartCtx.moveTo(padding, y);
+          chartCtx.lineTo(width - padding, y);
+          chartCtx.stroke();
+        }
+
+        chartCtx.strokeStyle = "#94a3b8";
+        chartCtx.beginPath();
+        chartCtx.moveTo(padding, padding);
+        chartCtx.lineTo(padding, height - padding);
+        chartCtx.lineTo(width - padding, height - padding);
+        chartCtx.stroke();
+
+        series.forEach((points, index) => {
+          if (!points.length) {
+            return;
+          }
+
+          chartCtx.strokeStyle = colors[index];
+          chartCtx.lineWidth = 3;
+          chartCtx.beginPath();
+          points.forEach((point, pointIndex) => {
+            const x = padding + (pointIndex / Math.max(maxEpochs - 1, 1)) * chartWidth;
+            const y = height - padding - point * chartHeight;
+            if (pointIndex === 0) {
+              chartCtx.moveTo(x, y);
+            } else {
+              chartCtx.lineTo(x, y);
+            }
+          });
+          chartCtx.stroke();
+        });
+      }
+
+      function generateMockTrainingData() {
+        const settings = getSettings();
+        const epochs = Math.max(settings.epochs, 2);
+        const trainLoss = [];
+        const valLoss = [];
+        const map = [];
+        const precision = [];
+        const recall = [];
+        const overfitFactor = Math.max(0, (epochs - 18) / 24);
+
+        function clamp(value, min, max) {
+          return Math.min(max, Math.max(min, value));
+        }
+
+        for (let epoch = 1; epoch <= epochs; epoch += 1) {
+          const progress = epoch / epochs;
+          const fastLearning = 1 - Math.exp(-4.2 * progress);
+          const latePlateau = 1 - Math.exp(-1.6 * progress);
+          const trainNoise = Math.sin(epoch * 0.72) * 0.018 + Math.cos(epoch * 0.33) * 0.011;
+          const valNoise = Math.sin(epoch * 0.87) * 0.028 + Math.cos(epoch * 0.41) * 0.016;
+          const overfitStart = Math.max(0, progress - 0.72);
+          const overfitPenalty = overfitStart * overfitStart * 0.32 * overfitFactor;
+
+          const trainLossValue =
+            0.96 - 0.67 * fastLearning - 0.11 * latePlateau + trainNoise;
+          const valLossValue =
+            1.01 - 0.56 * fastLearning - 0.08 * latePlateau + valNoise + overfitPenalty;
+
+          const mapValue =
+            0.18 + 0.56 * fastLearning + 0.11 * latePlateau + Math.sin(epoch * 0.46) * 0.018 - overfitPenalty * 0.45;
+          const precisionValue =
+            0.28 + 0.52 * fastLearning + 0.08 * latePlateau + Math.cos(epoch * 0.39) * 0.016 - overfitPenalty * 0.22;
+          const recallValue =
+            0.22 + 0.50 * fastLearning + 0.10 * latePlateau + Math.sin(epoch * 0.31) * 0.017 - overfitPenalty * 0.16;
+
+          trainLoss.push(clamp(trainLossValue, 0.09, 1.1));
+          valLoss.push(clamp(valLossValue, 0.12, 1.2));
+          map.push(clamp(mapValue, 0.12, 0.94));
+          precision.push(clamp(precisionValue, 0.18, 0.97));
+          recall.push(clamp(recallValue, 0.14, 0.93));
+        }
+
+        return { epochs, trainLoss, valLoss, map, precision, recall };
+      }
+
+      function updateDashboardCards(index, data) {
+        currentEpoch.textContent = String(index + 1);
+        mapStat.textContent = data.map[index].toFixed(2);
+        precisionStat.textContent = data.precision[index].toFixed(2);
+        recallStat.textContent = data.recall[index].toFixed(2);
+        trainLossStat.textContent = data.trainLoss[index].toFixed(2);
+        valLossStat.textContent = data.valLoss[index].toFixed(2);
+      }
+
+      function renderDashboard(index) {
+        if (!dashboardState.data) {
+          drawEmptyChart(lossCtx, lossChart, "Run the dashboard to preview loss curves.");
+          drawEmptyChart(metricCtx, metricChart, "Run the dashboard to preview validation metrics.");
+          return;
+        }
+
+        const data = dashboardState.data;
+        const lossSeries = [
+          data.trainLoss.slice(0, index + 1),
+          data.valLoss.slice(0, index + 1)
+        ];
+        const metricSeries = [
+          data.map.slice(0, index + 1),
+          data.precision.slice(0, index + 1),
+          data.recall.slice(0, index + 1)
+        ];
+
+        drawLineChart(lossCtx, lossChart, lossSeries, ["#0f766e", "#b45309"], data.epochs);
+        drawLineChart(metricCtx, metricChart, metricSeries, ["#0f4c81", "#0f766e", "#b45309"], data.epochs);
+        updateDashboardCards(index, data);
+      }
+
+      function stopDashboardTimer() {
+        if (dashboardState.timer) {
+          clearInterval(dashboardState.timer);
+          dashboardState.timer = null;
+        }
+      }
+
+      function runMockDashboard() {
+        stopDashboardTimer();
+        dashboardState.data = generateMockTrainingData();
+        dashboardState.index = 0;
+        dashboardStatus.innerHTML = `Simulating <strong>${getSettings().epochs}</strong> training epochs in the browser. This is a teaching demo, not a real model run.`;
+        renderDashboard(0);
+
+        dashboardState.timer = setInterval(() => {
+          dashboardState.index += 1;
+          if (dashboardState.index >= dashboardState.data.epochs) {
+            dashboardState.index = dashboardState.data.epochs - 1;
+            renderDashboard(dashboardState.index);
+            dashboardStatus.innerHTML = `Simulation complete. Final mock mAP@0.5 is <strong>${dashboardState.data.map[dashboardState.index].toFixed(2)}</strong> after ${dashboardState.data.epochs} epochs.`;
+            stopDashboardTimer();
+            return;
+          }
+
+          renderDashboard(dashboardState.index);
+        }, 350);
+      }
+
+      function resetDashboardView() {
+        stopDashboardTimer();
+        dashboardState.data = null;
+        dashboardState.index = 0;
+        currentEpoch.textContent = "0";
+        mapStat.textContent = "0.00";
+        precisionStat.textContent = "0.00";
+        recallStat.textContent = "0.00";
+        trainLossStat.textContent = "0.00";
+        valLossStat.textContent = "0.00";
+        dashboardStatus.innerHTML = `Click <strong>Run dashboard</strong> to simulate a training session with the current settings.`;
+        renderDashboard(0);
+      }
+
+      function clearTestCanvas(message) {
+        testCtx.clearRect(0, 0, testCanvas.width, testCanvas.height);
+        testCtx.fillStyle = "#f8fafc";
+        testCtx.fillRect(0, 0, testCanvas.width, testCanvas.height);
+        testCtx.fillStyle = "#64748b";
+        testCtx.font = "20px Avenir Next, Segoe UI, sans-serif";
+        testCtx.textAlign = "center";
+        testCtx.fillText(message, testCanvas.width / 2, testCanvas.height / 2);
+      }
+
+      function drawTestPreview() {
+        testCtx.clearRect(0, 0, testCanvas.width, testCanvas.height);
+
+        if (!testState.image) {
+          clearTestCanvas("Upload a new test image to begin.");
+          return;
+        }
+
+        const scale = Math.min(testCanvas.width / testState.imageWidth, testCanvas.height / testState.imageHeight);
+        const drawWidth = testState.imageWidth * scale;
+        const drawHeight = testState.imageHeight * scale;
+        const offsetX = (testCanvas.width - drawWidth) / 2;
+        const offsetY = (testCanvas.height - drawHeight) / 2;
+
+        testCtx.fillStyle = "#f8fafc";
+        testCtx.fillRect(0, 0, testCanvas.width, testCanvas.height);
+        testCtx.drawImage(testState.image, offsetX, offsetY, drawWidth, drawHeight);
+
+        testState.detections.forEach((detection, index) => {
+          const x = offsetX + detection.xmin * scale;
+          const y = offsetY + detection.ymin * scale;
+          const width = (detection.xmax - detection.xmin) * scale;
+          const height = (detection.ymax - detection.ymin) * scale;
+          const color = index % 2 === 0 ? "#0f766e" : "#b45309";
+
+          testCtx.strokeStyle = color;
+          testCtx.lineWidth = 3;
+          testCtx.strokeRect(x, y, width, height);
+
+          const label = `${detection.label} ${detection.confidence.toFixed(2)}`;
+          testCtx.font = "16px Avenir Next, Segoe UI, sans-serif";
+          const labelWidth = Math.max(testCtx.measureText(label).width + 24, 96);
+          testCtx.fillStyle = color;
+          testCtx.fillRect(x, Math.max(y - 28, 0), labelWidth, 28);
+          testCtx.fillStyle = "#ffffff";
+          testCtx.fillText(label, x + 10, Math.max(y - 9, 18));
+        });
+      }
+
+      function handleTestImageFile(file) {
+        if (!file) {
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = () => {
+          const img = new Image();
+          img.onload = () => {
+            testState.image = img;
+            testState.imageName = file.name;
+            testState.imageWidth = img.width;
+            testState.imageHeight = img.height;
+            testState.detections = [];
+            testStatus.textContent = `Loaded ${file.name}. Run the detection demo to preview testing results.`;
+            testResultList.innerHTML = "<li>Run the detection demo to generate predicted boxes.</li>";
+            drawTestPreview();
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function generateDemoDetections() {
+        if (!testState.image) {
+          return [];
+        }
+
+        const width = testState.imageWidth;
+        const height = testState.imageHeight;
+        const classNames = getSettings().classNames;
+        const primary = classNames[0] || "helmet";
+        const secondary = classNames[1] || "head";
+
+        return [
+          {
+            label: primary,
+            confidence: 0.91,
+            xmin: width * 0.18,
+            ymin: height * 0.18,
+            xmax: width * 0.42,
+            ymax: height * 0.58
+          },
+          {
+            label: secondary,
+            confidence: 0.76,
+            xmin: width * 0.55,
+            ymin: height * 0.22,
+            xmax: width * 0.78,
+            ymax: height * 0.66
+          }
+        ];
+      }
+
+      function runTestDetectionDemoView() {
+        if (!testState.image) {
+          testStatus.textContent = "Upload a new image first, then run the detection demo.";
+          return;
+        }
+
+        testState.detections = generateDemoDetections();
+        testStatus.textContent = `Showing a browser-side detection demo for ${testState.imageName}. Use the Colab testing cell for the real model output.`;
+        testResultList.innerHTML = testState.detections
+          .map((detection) => `<li><strong>${detection.label}</strong> detected with confidence ${detection.confidence.toFixed(2)}</li>`)
+          .join("");
+        drawTestPreview();
+      }
+
+      function resetTestDetectionView() {
+        testState.image = null;
+        testState.imageName = "";
+        testState.imageWidth = 0;
+        testState.imageHeight = 0;
+        testState.detections = [];
+        testStatus.textContent = "Upload a new image to begin testing.";
+        testResultList.innerHTML = "<li>Upload a new image, then run the detection demo.</li>";
+        clearTestCanvas("Upload a new test image to begin.");
+      }
+
+      function setupDropzone(dropzone, handler) {
+        ["dragenter", "dragover"].forEach((eventName) => {
+          dropzone.addEventListener(eventName, (event) => {
+            event.preventDefault();
+            dropzone.classList.add("upload-zone-active");
+          });
+        });
+
+        ["dragleave", "drop"].forEach((eventName) => {
+          dropzone.addEventListener(eventName, (event) => {
+            event.preventDefault();
+            dropzone.classList.remove("upload-zone-active");
+          });
+        });
+
+        dropzone.addEventListener("drop", (event) => {
+          handler(event.dataTransfer.files);
+        });
+      }
+
+      async function copyText(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (error) {
+          const helper = document.createElement("textarea");
+          helper.value = text;
+          document.body.appendChild(helper);
+          helper.select();
+          document.execCommand("copy");
+          helper.remove();
+        }
+      }
+
+      startGuide.addEventListener("click", () => goToStep(0));
+      document.querySelectorAll("[data-step-target]").forEach((button) => {
+        button.addEventListener("click", () => goToStep(Number(button.dataset.stepTarget)));
+      });
+
+      document.querySelectorAll("[data-step-next]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const current = stepPanels.findIndex((panel) => panel.classList.contains("is-active"));
+          goToStep(Math.min(current + 1, stepPanels.length - 1));
+        });
+      });
+
+      document.querySelectorAll("[data-step-prev]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const current = stepPanels.findIndex((panel) => panel.classList.contains("is-active"));
+          goToStep(Math.max(current - 1, 0));
+        });
+      });
+
+      form.addEventListener("input", () => {
+        renderWorkflow();
+        resetDashboardView();
+      });
+      folderUpload.addEventListener("change", (event) => handleFolderFiles(event.target.files));
+      imageUpload.addEventListener("change", (event) => handleImageFile(event.target.files[0]));
+      xmlUpload.addEventListener("change", (event) => handleXmlFile(event.target.files[0]));
+      testImageUpload.addEventListener("change", (event) => handleTestImageFile(event.target.files[0]));
+      setupDropzone(folderDropzone, handleFolderFiles);
+      setupDropzone(imageDropzone, (files) => handleImageFile(files[0]));
+      setupDropzone(xmlDropzone, (files) => handleXmlFile(files[0]));
+      setupDropzone(testImageDropzone, (files) => handleTestImageFile(files[0]));
+      runDashboard.addEventListener("click", runMockDashboard);
+      resetDashboard.addEventListener("click", resetDashboardView);
+      runTestDetection.addEventListener("click", runTestDetectionDemoView);
+      resetTestDetection.addEventListener("click", resetTestDetectionView);
+
+      document.getElementById("copyAll").addEventListener("click", () => {
+        const allText = [
+          outputIds.download.textContent,
+          outputIds.process.textContent,
+          outputIds.config.textContent,
+          outputIds.train.textContent,
+          outputIds.test.textContent
+        ].join("\n\n");
+        copyText(allText);
+      });
+
+      document.querySelectorAll(".copy-chip").forEach((button) => {
+        button.addEventListener("click", () => {
+          const target = document.getElementById(button.dataset.copyTarget);
+          copyText(target.textContent);
+        });
+      });
+
+      clearCanvasMessage("Upload a sample image to begin.");
+      updateAnnotationPanels();
+      renderWorkflow();
+      resetDashboardView();
+      resetTestDetectionView();
+      goToStep(0);
+    </script>
+  </body>
+</html>
