@@ -72,7 +72,7 @@
           <p class="eyebrow">Module 5 workflow tool</p>
           <h1 class="page-title">Deep learning workflow</h1>
           <p class="page-intro">
-            This page turns the hardhat detection notebook into a guided, browser-side workflow app. Fill in a few settings, preview dataset structure and labels, and run a mock training dashboard before moving into Colab.
+            This page turns the hardhat detection notebook into a guided learning workflow. It helps you understand the dataset, labels, training process, and testing flow here in the browser, while the real YOLO training and detection still happen in Colab.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/M05_DL_Construction/Code/Hardhat_Detection_tutorial.ipynb">Open the original Colab</a>
@@ -122,6 +122,30 @@
             </article>
           </div>
 
+          <div class="grid grid-two overview-grid">
+            <article class="card">
+              <h3>What makes deep learning different?</h3>
+              <p>
+                In traditional machine learning, people usually choose the features first. In deep learning, the model learns the useful visual features directly from many labeled images.
+              </p>
+              <ul class="checklist">
+                <li>Traditional ML: hand-designed features, then prediction</li>
+                <li>Deep learning: raw image in, learned features inside the model</li>
+                <li>YOLO learns shapes, edges, textures, and object patterns during training</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Follow one example through the workflow</h3>
+              <ul class="checklist">
+                <li>Start with one construction image and its XML annotation</li>
+                <li>Convert the XML box into YOLO label text</li>
+                <li>Train YOLO on many labeled images like this</li>
+                <li>Save the learned model as <code>best.pt</code> or <code>last.pt</code></li>
+                <li>Use the saved model to detect helmets in a new image</li>
+              </ul>
+            </article>
+          </div>
+
           <div class="workflow-strip" aria-label="Deep learning workflow">
             <article class="card workflow-step">
               <p class="workflow-step-number">1</p>
@@ -155,6 +179,15 @@
             </article>
           </div>
 
+          <div class="callout card">
+            <h3>Important distinction</h3>
+            <ul class="checklist">
+              <li>This page is for understanding the workflow visually.</li>
+              <li>The browser previews help explain labels, metrics, and predictions.</li>
+              <li>The real dataset download, YOLO training, validation, and testing still happen in Colab.</li>
+            </ul>
+          </div>
+
           <div class="step-actions">
             <button class="button button-primary" data-step-next type="button">Next: Data setup</button>
           </div>
@@ -172,6 +205,9 @@
           <div class="builder-layout">
             <article class="card builder-panel">
               <h3>Workflow settings</h3>
+              <p class="builder-caption">
+                These settings update the generated Colab cells below. If you change the file ID, split ratios, epochs, batch size, image size, or experiment name, the code blocks are rewritten automatically.
+              </p>
               <form class="builder-form" id="workflow-form">
                 <label>
                   Dataset name
@@ -219,32 +255,31 @@
                 </label>
               </form>
 
-              <div class="callout card">
-                <h3>What to know before running</h3>
-                <ul class="checklist">
-                  <li>Use GPU in Google Colab for faster training.</li>
-                  <li>The three split values should add up to 100.</li>
-                  <li>`helmet` and `head` are the default classes for this module.</li>
-                  <li>The generated cells can be pasted into a fresh notebook in order.</li>
-                </ul>
+              <div class="step-actions step-actions-inline">
+                <button class="button button-primary" id="updateWorkflow" type="button">Update generated workflow</button>
               </div>
 
-              <div class="card">
-                <h3>What happens in this step</h3>
+              <details class="output-block info-block" open>
+                <summary class="code-summary">How to use this step</summary>
                 <ul class="checklist">
-                  <li>Download the hardhat dataset from Google Drive into Colab.</li>
-                  <li>Split the data into train, validation, and test folders.</li>
-                  <li>Convert XML annotations into YOLO label files.</li>
-                  <li>Create the dataset YAML file that YOLOv5 will read later.</li>
+                  <li><strong>Google Drive file ID</strong> changes the dataset download cell.</li>
+                  <li><strong>Train / validation / test</strong> changes the dataset split code.</li>
+                  <li><strong>Class names</strong> changes the YAML config and label conversion logic.</li>
+                  <li><strong>Epochs, batch size, image size</strong> change the YOLO training command.</li>
+                  <li><strong>Experiment name</strong> changes the output folder and saved run name.</li>
+                  <li>Use GPU in Google Colab for faster training.</li>
+                  <li>The three split values should add up to 100.</li>
+                  <li>The generated cells can be pasted into a fresh notebook in order.</li>
+                  <li>This step downloads the dataset, splits the images, converts XML to YOLO labels, and creates the YAML config.</li>
                 </ul>
-              </div>
+              </details>
             </article>
 
             <article class="card builder-panel">
               <div class="builder-output-header">
                 <div>
                   <h3>Generated workflow</h3>
-                  <p class="builder-caption">Copy one section at a time or copy the whole workflow.</p>
+                  <p class="builder-caption">These code blocks update live when you change the workflow settings on the left.</p>
                 </div>
                 <button class="button button-primary copy-button" id="copyAll" type="button">Copy all cells</button>
               </div>
@@ -526,6 +561,51 @@ test/labels</code></pre>
 
           <div class="grid grid-three overview-grid">
             <article class="card">
+              <h3>What is an epoch?</h3>
+              <div class="dl-mini-figure">
+                <div class="dl-epoch-row">
+                  <span class="dl-chip">Batch 1</span>
+                  <span class="dl-chip">Batch 2</span>
+                  <span class="dl-chip">Batch 3</span>
+                  <span class="dl-chip">Batch 4</span>
+                </div>
+                <div class="dl-figure-arrow">One full pass through the training set</div>
+              </div>
+              <p>
+                One epoch means the model has seen the whole training dataset once. If training uses 10 epochs, the model goes through the training data 10 times.
+              </p>
+            </article>
+            <article class="card">
+              <h3>What is batch size?</h3>
+              <div class="dl-mini-figure">
+                <div class="dl-grid-figure">
+                  <span></span><span></span><span></span><span></span>
+                  <span></span><span class="is-accent"></span><span class="is-accent"></span><span></span>
+                  <span></span><span class="is-accent"></span><span class="is-accent"></span><span></span>
+                </div>
+                <div class="dl-figure-arrow">Small group of images loaded together</div>
+              </div>
+              <p>
+                Batch size tells YOLO how many images to process at one time before updating the model weights. Larger batches use more memory; smaller batches are lighter but may train more slowly.
+              </p>
+            </article>
+            <article class="card">
+              <h3>What is image size?</h3>
+              <div class="dl-mini-figure">
+                <div class="dl-size-figure">
+                  <div class="dl-size-box dl-size-large">640 x 640</div>
+                  <div class="dl-size-box dl-size-small">320 x 320</div>
+                </div>
+                <div class="dl-figure-arrow">Input image resolution used during training</div>
+              </div>
+              <p>
+                Image size is the resolution YOLO uses during training and testing. Larger sizes may preserve more detail, but they also require more time and memory.
+              </p>
+            </article>
+          </div>
+
+          <div class="grid grid-three overview-grid">
+            <article class="card">
               <h3>Training set</h3>
               <p>Used directly to teach the model from labeled examples.</p>
             </article>
@@ -546,196 +626,203 @@ test/labels</code></pre>
               When training ends, YOLOv5 saves the learned model and the training history. These output files are what you use later for validation, testing, and inference on new images.
             </p>
           </div>
+          <div class="output-stack">
+            <details class="output-block info-block" open>
+              <summary class="code-summary">Saved files after training</summary>
+              <div class="grid grid-three overview-grid">
+                <article class="card">
+                  <h3><code>best.pt</code></h3>
+                  <p>
+                    This is the most important output file. It stores the version of the model that performed best on the validation set during training.
+                  </p>
+                  <ul class="checklist">
+                    <li>Use this file for testing</li>
+                    <li>Use this file for detection on new images</li>
+                    <li>Usually the main file to keep</li>
+                  </ul>
+                </article>
+                <article class="card">
+                  <h3><code>last.pt</code></h3>
+                  <p>
+                    This stores the model from the final training epoch. It is useful if you want to resume training or compare the final epoch to the best validation checkpoint.
+                  </p>
+                  <ul class="checklist">
+                    <li>Represents the final training state</li>
+                    <li>Useful for continuing training</li>
+                    <li>Not always the best-performing file</li>
+                  </ul>
+                </article>
+                <article class="card">
+                  <h3>Training plots and logs</h3>
+                  <p>
+                    YOLOv5 also saves charts and metrics such as loss, precision, recall, and mAP so you can inspect how learning changed across epochs.
+                  </p>
+                  <ul class="checklist">
+                    <li>Helps explain model improvement</li>
+                    <li>Shows overfitting or stability</li>
+                    <li>Supports class discussion and reporting</li>
+                  </ul>
+                </article>
+              </div>
 
-          <div class="grid grid-three overview-grid">
-            <article class="card">
-              <h3><code>best.pt</code></h3>
-              <p>
-                This is the most important output file. It stores the version of the model that performed best on the validation set during training.
-              </p>
-              <ul class="checklist">
-                <li>Use this file for testing</li>
-                <li>Use this file for detection on new images</li>
-                <li>Usually the main file to keep</li>
-              </ul>
-            </article>
-            <article class="card">
-              <h3><code>last.pt</code></h3>
-              <p>
-                This stores the model from the final training epoch. It is useful if you want to resume training or compare the final epoch to the best validation checkpoint.
-              </p>
-              <ul class="checklist">
-                <li>Represents the final training state</li>
-                <li>Useful for continuing training</li>
-                <li>Not always the best-performing file</li>
-              </ul>
-            </article>
-            <article class="card">
-              <h3>Training plots and logs</h3>
-              <p>
-                YOLOv5 also saves charts and metrics such as loss, precision, recall, and mAP so you can inspect how learning changed across epochs.
-              </p>
-              <ul class="checklist">
-                <li>Helps explain model improvement</li>
-                <li>Shows overfitting or stability</li>
-                <li>Supports class discussion and reporting</li>
-              </ul>
-            </article>
-          </div>
-
-          <article class="card">
-            <h3>Typical output folder after training</h3>
-            <pre><code>runs/train/yolo_hardhat_exp/
+              <article class="card">
+                <h3>Typical output folder after training</h3>
+                <pre><code>runs/train/yolo_hardhat_exp/
 weights/best.pt
 weights/last.pt
 results.png
 results.csv
 confusion_matrix.png</code></pre>
-            <p class="builder-caption">The exact folder name depends on the experiment name you choose during training.</p>
-          </article>
+                <p class="builder-caption">The exact folder name depends on the experiment name you choose during training.</p>
+              </article>
+            </details>
 
-          <div class="grid grid-two overview-grid">
-            <article class="card">
-              <h3>Real annotation example from Module 5</h3>
-              <figure class="annotated-example">
-                <div class="annotated-image">
-                  <img src="../media/module-5-hardhat-example.png" alt="Construction crew image annotated with helmet and head bounding boxes" width="416" height="416" />
-                  <span class="annotation-box annotation-helmet annotation-h1" data-label="helmet" aria-label="helmet annotation"></span>
-                  <span class="annotation-box annotation-helmet annotation-h2" data-label="helmet" aria-label="helmet annotation"></span>
-                  <span class="annotation-box annotation-helmet annotation-h3" data-label="helmet" aria-label="helmet annotation"></span>
-                  <span class="annotation-box annotation-head annotation-n1" data-label="head" aria-label="head annotation"></span>
-                  <span class="annotation-box annotation-head annotation-n2" data-label="head" aria-label="head annotation"></span>
-                </div>
-                <figcaption>
-                  This uses the real example image and XML boxes from Module 5. The model learns from many labeled examples like this during training.
-                </figcaption>
-              </figure>
-            </article>
-            <article class="card">
-              <h3>How this connects to weights</h3>
-              <p>
-                Every time the model sees labeled examples like this, it adjusts its internal weights so it becomes better at recognizing the visual patterns linked to <code>helmet</code> and <code>head</code>.
-              </p>
-              <ul class="checklist">
-                <li>The image provides the visual pattern</li>
-                <li>The box provides the object location</li>
-                <li>The class label provides the meaning</li>
-                <li>The learned weights store what the model extracts from many such examples</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="grid grid-two overview-grid">
-            <article class="card">
-              <h3>What are model weights?</h3>
-              <p>
-                Model weights are the learned numbers inside the neural network. During training, the model keeps adjusting these numbers so some visual patterns matter more and others matter less.
-              </p>
-              <figure class="weights-figure">
-                <svg viewBox="0 0 720 300" role="img" aria-label="Illustration of model weights as learned numeric values connected to visual features and saved model files">
-                  <rect x="20" y="28" width="210" height="236" rx="18" fill="#f8fafc" stroke="#dbe3ec" />
-                  <text x="44" y="62" fill="#0f172a" font-size="22" font-weight="700">Example Weights</text>
-                  <text x="44" y="92" fill="#475569" font-size="15">A model stores many learned numbers</text>
-
-                  <rect x="44" y="116" width="54" height="38" rx="10" fill="#0f4c81" opacity="0.92" />
-                  <rect x="110" y="116" width="54" height="38" rx="10" fill="#2e7dbd" opacity="0.8" />
-                  <rect x="176" y="116" width="30" height="38" rx="10" fill="#cbd5e1" />
-
-                  <rect x="44" y="166" width="42" height="38" rx="10" fill="#0f766e" opacity="0.88" />
-                  <rect x="98" y="166" width="42" height="38" rx="10" fill="#94a3b8" />
-                  <rect x="152" y="166" width="42" height="38" rx="10" fill="#b45309" opacity="0.78" />
-
-                  <text x="58" y="140" fill="#ffffff" font-size="14">0.92</text>
-                  <text x="124" y="140" fill="#ffffff" font-size="14">0.71</text>
-                  <text x="182" y="140" fill="#334155" font-size="14">...</text>
-                  <text x="54" y="190" fill="#ffffff" font-size="14">0.84</text>
-                  <text x="108" y="190" fill="#334155" font-size="14">0.12</text>
-                  <text x="162" y="190" fill="#ffffff" font-size="14">0.66</text>
-
-                  <line x1="230" y1="90" x2="286" y2="90" stroke="#94a3b8" stroke-width="3" />
-                  <line x1="230" y1="150" x2="286" y2="150" stroke="#94a3b8" stroke-width="3" />
-                  <line x1="230" y1="210" x2="286" y2="210" stroke="#94a3b8" stroke-width="3" />
-
-                  <rect x="286" y="28" width="190" height="236" rx="18" fill="#f8fafc" stroke="#dbe3ec" />
-                  <text x="310" y="62" fill="#0f172a" font-size="22" font-weight="700">What They Learn</text>
-                  <text x="310" y="95" fill="#0f172a" font-size="17" font-weight="700">Strong weights</text>
-                  <text x="310" y="118" fill="#475569" font-size="15">helmet curve</text>
-                  <text x="310" y="141" fill="#475569" font-size="15">head boundary</text>
-                  <text x="310" y="164" fill="#475569" font-size="15">object shape</text>
-                  <text x="310" y="196" fill="#0f172a" font-size="17" font-weight="700">Weak weights</text>
-                  <text x="310" y="219" fill="#475569" font-size="15">background noise</text>
-                  <text x="310" y="242" fill="#475569" font-size="15">unhelpful pixels</text>
-
-                  <line x1="476" y1="146" x2="532" y2="146" stroke="#94a3b8" stroke-width="3" />
-
-                  <rect x="532" y="28" width="168" height="236" rx="18" fill="#f8fafc" stroke="#dbe3ec" />
-                  <text x="556" y="62" fill="#0f172a" font-size="22" font-weight="700">Saved Output</text>
-                  <rect x="556" y="94" width="120" height="42" rx="12" fill="#0f4c81" />
-                  <rect x="556" y="148" width="120" height="42" rx="12" fill="#0f766e" />
-                  <text x="582" y="120" fill="#ffffff" font-size="16" font-weight="700">best.pt</text>
-                  <text x="586" y="174" fill="#ffffff" font-size="16" font-weight="700">last.pt</text>
-                  <text x="556" y="220" fill="#475569" font-size="15">Weights saved after training</text>
-                  <text x="556" y="242" fill="#475569" font-size="15">for testing and detection</text>
-                </svg>
-                <figcaption>
-                  Simplified view: real models contain millions of learned values, but the idea is the same. Larger useful weights strengthen important visual cues, while weaker weights reduce less helpful ones.
-                </figcaption>
-              </figure>
-            </article>
-            <article class="card">
-              <h3>Real picture example with weight values</h3>
-              <p>
-                Using the real Module 5 image, we can imagine the model giving stronger learned weight values to useful patterns and weaker values to less useful patterns.
-              </p>
-              <div class="weight-example-list">
-                <div class="weight-example-item">
-                  <span class="weight-chip weight-strong">0.92</span>
-                  <div>
-                    <strong>Helmet edge and curve</strong>
-                    <p>The model learns that rounded helmet boundaries are highly useful for the <code>helmet</code> class.</p>
-                  </div>
-                </div>
-                <div class="weight-example-item">
-                  <span class="weight-chip weight-strong">0.84</span>
-                  <div>
-                    <strong>Head shape near shoulders</strong>
-                    <p>The model learns that head position and shape help separate <code>head</code> from background clutter.</p>
-                  </div>
-                </div>
-                <div class="weight-example-item">
-                  <span class="weight-chip weight-medium">0.66</span>
-                  <div>
-                    <strong>Worker posture and nearby context</strong>
-                    <p>These patterns can help, but usually matter less than the direct object shape.</p>
-                  </div>
-                </div>
-                <div class="weight-example-item">
-                  <span class="weight-chip weight-weak">0.12</span>
-                  <div>
-                    <strong>Background pixels</strong>
-                    <p>Unhelpful background texture should get much weaker importance after training.</p>
-                  </div>
-                </div>
+            <details class="output-block info-block">
+              <summary class="code-summary">How weights learn from labeled images</summary>
+              <div class="grid grid-two overview-grid">
+                <article class="card">
+                  <h3>Real annotation example from Module 5</h3>
+                  <figure class="annotated-example">
+                    <div class="annotated-image">
+                      <img src="../media/module-5-hardhat-example.png" alt="Construction crew image annotated with helmet and head bounding boxes" width="416" height="416" />
+                      <span class="annotation-box annotation-helmet annotation-h1" data-label="helmet" aria-label="helmet annotation"></span>
+                      <span class="annotation-box annotation-helmet annotation-h2" data-label="helmet" aria-label="helmet annotation"></span>
+                      <span class="annotation-box annotation-helmet annotation-h3" data-label="helmet" aria-label="helmet annotation"></span>
+                      <span class="annotation-box annotation-head annotation-n1" data-label="head" aria-label="head annotation"></span>
+                      <span class="annotation-box annotation-head annotation-n2" data-label="head" aria-label="head annotation"></span>
+                    </div>
+                    <figcaption>
+                      This uses the real example image and XML boxes from Module 5. The model learns from many labeled examples like this during training.
+                    </figcaption>
+                  </figure>
+                </article>
+                <article class="card">
+                  <h3>How this connects to weights</h3>
+                  <p>
+                    Every time the model sees labeled examples like this, it adjusts its internal weights so it becomes better at recognizing the visual patterns linked to <code>helmet</code> and <code>head</code>.
+                  </p>
+                  <ul class="checklist">
+                    <li>The image provides the visual pattern</li>
+                    <li>The box provides the object location</li>
+                    <li>The class label provides the meaning</li>
+                    <li>The learned weights store what the model extracts from many such examples</li>
+                  </ul>
+                </article>
               </div>
-              <p class="builder-caption">
-                These values are illustrative, not extracted from the actual YOLOv5 checkpoint. They are shown here to help connect real image features to the idea of learned weights.
-              </p>
-            </article>
-          </div>
 
-          <div class="grid grid-three overview-grid">
-            <article class="card">
-              <h3>Before training</h3>
-              <p>The model starts with generic pretrained knowledge, but it is not yet specialized for this hardhat dataset.</p>
-            </article>
-            <article class="card">
-              <h3>During training</h3>
-              <p>The weights are adjusted after each batch so predictions move closer to the labeled answers.</p>
-            </article>
-            <article class="card">
-              <h3>After training</h3>
-              <p>The saved weight files contain the learned version of the model that can now be reused for validation, testing, and detection.</p>
-            </article>
+              <div class="grid grid-two overview-grid">
+                <article class="card">
+                  <h3>What are model weights?</h3>
+                  <p>
+                    Model weights are the learned numbers inside the neural network. During training, YOLO keeps adjusting them so important visual patterns like helmet shape and head boundaries matter more, while unhelpful background details matter less.
+                  </p>
+                  <figure class="weights-figure">
+                    <svg viewBox="0 0 720 300" role="img" aria-label="Illustration of model weights as learned numeric values connected to visual features and saved model files">
+                      <rect x="20" y="28" width="210" height="236" rx="18" fill="#f8fafc" stroke="#dbe3ec" />
+                      <text x="44" y="62" fill="#0f172a" font-size="22" font-weight="700">Example Weights</text>
+                      <text x="44" y="92" fill="#475569" font-size="15">A model stores many learned numbers</text>
+
+                      <rect x="44" y="116" width="54" height="38" rx="10" fill="#0f4c81" opacity="0.92" />
+                      <rect x="110" y="116" width="54" height="38" rx="10" fill="#2e7dbd" opacity="0.8" />
+                      <rect x="176" y="116" width="30" height="38" rx="10" fill="#cbd5e1" />
+
+                      <rect x="44" y="166" width="42" height="38" rx="10" fill="#0f766e" opacity="0.88" />
+                      <rect x="98" y="166" width="42" height="38" rx="10" fill="#94a3b8" />
+                      <rect x="152" y="166" width="42" height="38" rx="10" fill="#b45309" opacity="0.78" />
+
+                      <text x="58" y="140" fill="#ffffff" font-size="14">0.92</text>
+                      <text x="124" y="140" fill="#ffffff" font-size="14">0.71</text>
+                      <text x="182" y="140" fill="#334155" font-size="14">...</text>
+                      <text x="54" y="190" fill="#ffffff" font-size="14">0.84</text>
+                      <text x="108" y="190" fill="#334155" font-size="14">0.12</text>
+                      <text x="162" y="190" fill="#ffffff" font-size="14">0.66</text>
+
+                      <line x1="230" y1="90" x2="286" y2="90" stroke="#94a3b8" stroke-width="3" />
+                      <line x1="230" y1="150" x2="286" y2="150" stroke="#94a3b8" stroke-width="3" />
+                      <line x1="230" y1="210" x2="286" y2="210" stroke="#94a3b8" stroke-width="3" />
+
+                      <rect x="286" y="28" width="190" height="236" rx="18" fill="#f8fafc" stroke="#dbe3ec" />
+                      <text x="310" y="62" fill="#0f172a" font-size="22" font-weight="700">What They Learn</text>
+                      <text x="310" y="95" fill="#0f172a" font-size="17" font-weight="700">Strong weights</text>
+                      <text x="310" y="118" fill="#475569" font-size="15">helmet curve</text>
+                      <text x="310" y="141" fill="#475569" font-size="15">head boundary</text>
+                      <text x="310" y="164" fill="#475569" font-size="15">object shape</text>
+                      <text x="310" y="196" fill="#0f172a" font-size="17" font-weight="700">Weak weights</text>
+                      <text x="310" y="219" fill="#475569" font-size="15">background noise</text>
+                      <text x="310" y="242" fill="#475569" font-size="15">unhelpful pixels</text>
+
+                      <line x1="476" y1="146" x2="532" y2="146" stroke="#94a3b8" stroke-width="3" />
+
+                      <rect x="532" y="28" width="168" height="236" rx="18" fill="#f8fafc" stroke="#dbe3ec" />
+                      <text x="556" y="62" fill="#0f172a" font-size="22" font-weight="700">Saved Output</text>
+                      <rect x="556" y="94" width="120" height="42" rx="12" fill="#0f4c81" />
+                      <rect x="556" y="148" width="120" height="42" rx="12" fill="#0f766e" />
+                      <text x="582" y="120" fill="#ffffff" font-size="16" font-weight="700">best.pt</text>
+                      <text x="586" y="174" fill="#ffffff" font-size="16" font-weight="700">last.pt</text>
+                      <text x="556" y="220" fill="#475569" font-size="15">Weights saved after training</text>
+                      <text x="556" y="242" fill="#475569" font-size="15">for testing and detection</text>
+                    </svg>
+                    <figcaption>
+                      Simplified view: real models contain millions of learned values, but the idea is the same. Larger useful weights strengthen important visual cues, while weaker weights reduce less helpful ones.
+                    </figcaption>
+                  </figure>
+                </article>
+                <article class="card">
+                  <h3>How one labeled image helps training</h3>
+                  <p>
+                    Using the real Module 5 image, we can imagine the model assigning stronger learned weight values to useful clues and weaker values to less useful ones.
+                  </p>
+                  <div class="weight-example-list">
+                    <div class="weight-example-item">
+                      <span class="weight-chip weight-strong">0.92</span>
+                      <div>
+                        <strong>Helmet edge and curve</strong>
+                        <p>The model learns that rounded helmet boundaries are highly useful for the <code>helmet</code> class.</p>
+                      </div>
+                    </div>
+                    <div class="weight-example-item">
+                      <span class="weight-chip weight-strong">0.84</span>
+                      <div>
+                        <strong>Head shape near shoulders</strong>
+                        <p>The model learns that head position and shape help separate <code>head</code> from background clutter.</p>
+                      </div>
+                    </div>
+                    <div class="weight-example-item">
+                      <span class="weight-chip weight-medium">0.66</span>
+                      <div>
+                        <strong>Worker posture and nearby context</strong>
+                        <p>These patterns can help, but usually matter less than the direct object shape.</p>
+                      </div>
+                    </div>
+                    <div class="weight-example-item">
+                      <span class="weight-chip weight-weak">0.12</span>
+                      <div>
+                        <strong>Background pixels</strong>
+                        <p>Unhelpful background texture should get much weaker importance after training.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="builder-caption">
+                    These values are illustrative, not extracted from the actual YOLOv5 checkpoint. They are shown here to help connect real image features to the idea of learned weights.
+                  </p>
+                </article>
+              </div>
+
+              <div class="grid grid-three overview-grid">
+                <article class="card">
+                  <h3>Before training</h3>
+                  <p>The model starts with generic pretrained knowledge, but it is not yet specialized for this hardhat dataset.</p>
+                </article>
+                <article class="card">
+                  <h3>During training</h3>
+                  <p>The weights are adjusted after each batch so predictions move closer to the labeled answers.</p>
+                </article>
+                <article class="card">
+                  <h3>After training</h3>
+                  <p>The saved weight files contain the learned version of the model that can now be reused for validation, testing, and detection.</p>
+                </article>
+              </div>
+            </details>
           </div>
 
           <div class="builder-layout dashboard-layout">
@@ -749,6 +836,15 @@ confusion_matrix.png</code></pre>
                   <button class="button button-primary" id="runDashboard" type="button">Run dashboard</button>
                   <button class="button button-secondary" id="resetDashboard" type="button">Reset</button>
                 </div>
+              </div>
+
+              <div class="callout card">
+                <h3>Demo only</h3>
+                <ul class="checklist">
+                  <li>The charts below are simulated so you can learn what training curves usually look like.</li>
+                  <li>The real loss, precision, recall, and mAP values come from the Colab training run.</li>
+                  <li>Use this section to understand the pattern, not as the actual model result.</li>
+                </ul>
               </div>
 
               <div class="grid grid-three compact-stats">
@@ -977,6 +1073,7 @@ confusion_matrix.png</code></pre>
         train: document.getElementById("code-train"),
         test: document.getElementById("code-test")
       };
+      const updateWorkflowButton = document.getElementById("updateWorkflow");
 
       function sanitizeName(value) {
         return value.trim().replace(/\s+/g, "_");
@@ -1655,6 +1752,14 @@ confusion_matrix.png</code></pre>
       });
 
       form.addEventListener("input", () => {
+        renderWorkflow();
+        resetDashboardView();
+      });
+      form.addEventListener("change", () => {
+        renderWorkflow();
+        resetDashboardView();
+      });
+      updateWorkflowButton.addEventListener("click", () => {
         renderWorkflow();
         resetDashboardView();
       });

@@ -925,6 +925,93 @@ code {
   height: auto;
 }
 
+.dl-mini-figure {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0.95rem 0 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(29, 79, 145, 0.14);
+  border-radius: 18px;
+  background: #f8fafc;
+}
+
+.dl-epoch-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.dl-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.4rem;
+  border-radius: 999px;
+  background: #1d4f91;
+  color: #fff;
+  font-weight: 800;
+}
+
+.dl-figure-arrow {
+  color: var(--brand);
+  font-family: var(--heading);
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.dl-grid-figure {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+.dl-grid-figure span {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 0.65rem;
+  background: #dbe3ec;
+}
+
+.dl-grid-figure .is-accent {
+  background: #f0a95b;
+}
+
+.dl-size-figure {
+  position: relative;
+  min-height: 148px;
+}
+
+.dl-size-box {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-radius: 18px;
+  font-family: var(--heading);
+  font-weight: 800;
+}
+
+.dl-size-large {
+  inset: 0;
+  border-color: #1d4f91;
+  background: rgba(29, 79, 145, 0.09);
+  color: #1d4f91;
+}
+
+.dl-size-small {
+  width: 48%;
+  height: 48%;
+  right: 12%;
+  bottom: 12%;
+  border-color: #f0a95b;
+  background: rgba(240, 169, 91, 0.16);
+  color: #9a4a08;
+}
+
 .weights-figure {
   margin: 1rem 0 0;
 }
@@ -1341,6 +1428,10 @@ code {
 
   .step-actions {
     flex-direction: column;
+  }
+
+  .dl-epoch-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .instructor-hero .page-intro {
