@@ -1104,6 +1104,210 @@ code {
   }
 }
 
+.table-scroll {
+  overflow-x: auto;
+}
+
+.ml-diagram {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.ml-node {
+  position: relative;
+}
+
+.ml-node::after {
+  content: "->";
+  position: absolute;
+  top: 1.2rem;
+  right: -0.8rem;
+  color: var(--brand);
+  font-family: var(--heading);
+  font-weight: 800;
+}
+
+.ml-node:last-child::after {
+  display: none;
+}
+
+.workflow-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.workflow-table th,
+.workflow-table td {
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid rgba(29, 79, 145, 0.12);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.workflow-table th {
+  color: var(--brand);
+  font-family: var(--heading);
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric-card p {
+  margin: 0.45rem 0 0;
+}
+
+.comparison-chart {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid rgba(29, 79, 145, 0.14);
+  border-radius: 1rem;
+  background: #f7f9fc;
+}
+
+.feature-bars {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.feature-row {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.feature-labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 700;
+}
+
+.feature-track {
+  height: 0.9rem;
+  border-radius: 999px;
+  background: rgba(29, 79, 145, 0.12);
+  overflow: hidden;
+}
+
+.feature-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #1d4f91 0%, #5f88bf 100%);
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.recipe-grid label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 700;
+}
+
+.recipe-grid input {
+  width: 100%;
+}
+
+.ml-split-visual {
+  margin-top: 1rem;
+}
+
+.ml-split-bar {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+  min-height: 3.4rem;
+  background: rgba(29, 79, 145, 0.1);
+}
+
+.ml-split-train,
+.ml-split-test {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.ml-split-train {
+  background: #1d4f91;
+}
+
+.ml-split-test {
+  background: #f0a95b;
+}
+
+.prediction-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 1.1rem;
+}
+
+.prediction-flow-step {
+  position: relative;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(29, 79, 145, 0.14);
+  border-radius: 0.9rem;
+  background: #f7f9fc;
+  font-weight: 700;
+  text-align: center;
+}
+
+.prediction-flow-step::after {
+  content: "->";
+  position: absolute;
+  top: 50%;
+  right: -0.75rem;
+  transform: translateY(-50%);
+  color: var(--brand);
+  font-family: var(--heading);
+  font-weight: 800;
+}
+
+.prediction-flow-step:last-child::after {
+  display: none;
+}
+
+.prediction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.prediction-card {
+  text-align: center;
+}
+
+.prediction-value {
+  margin: 0.5rem 0 0.35rem;
+  color: var(--brand);
+  font-family: var(--heading);
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  line-height: 1;
+}
+
+.step-actions-inline {
+  justify-content: flex-start;
+}
+
 @media (max-width: 900px) {
   .hero,
   .grid-three,
@@ -1118,6 +1322,16 @@ code {
   .instructor-hero,
   .thanks-card {
     grid-template-columns: 1fr;
+  }
+
+  .ml-diagram,
+  .prediction-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .ml-node::after,
+  .prediction-flow-step::after {
+    display: none;
   }
 
   .topbar {
@@ -1149,5 +1363,9 @@ code {
 
   h1 {
     max-width: none;
+  }
+
+  .recipe-grid {
+    grid-template-columns: 1fr;
   }
 }

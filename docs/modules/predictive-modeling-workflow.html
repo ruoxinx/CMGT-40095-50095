@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 4 Workflow | AI in Construction</title>
+    <meta
+      name="description"
+      content="Guided workflow page for Module 4 machine learning with the concrete strength dataset."
+    />
+    <meta property="og:title" content="Module 4 Workflow | AI in Construction" />
+    <meta
+      property="og:description"
+      content="A guided page for data loading, preprocessing, model training, evaluation, and testing in Module 4."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ruoxinx.github.io/CMGT-40095-50095/modules/predictive-modeling-workflow.html"
+    />
+    <meta
+      property="og:image"
+      content="https://ruoxinx.github.io/CMGT-40095-50095/brand-icon.svg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="../brand-icon.svg" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="container">
+        <nav class="topbar" aria-label="Primary">
+          <a class="brand" href="../index.html">
+            <span class="brand-mark" aria-hidden="true">AI</span>
+            <span>
+              <strong>AI in Construction</strong>
+              <span class="brand-subtitle">CMGT 40095/50095</span>
+            </span>
+          </a>
+          <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../instructor.html">Instructor</a>
+            <a href="../syllabus.html">Syllabus</a>
+            <a href="./index.html">Modules</a>
+            <a href="../collaboration.html">Collaboration</a>
+            <a href="../guest-speakers.html">Guest speakers</a>
+            <a href="../guidelines.html">Notebook guide</a>
+            <a href="../license.html">License</a>
+          </div>
+          <a
+            class="icon-link"
+            href="https://github.com/ruoxinx/CMGT-40095-50095"
+            aria-label="Open GitHub repository"
+            title="GitHub repository"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.56v-2.18c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.69 1.25 3.35.95.1-.75.4-1.25.72-1.54-2.56-.29-5.25-1.28-5.25-5.71 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.98 10.98 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.09 0 4.44-2.69 5.41-5.26 5.7.41.35.78 1.04.78 2.1v3.12c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
+              />
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="page-main">
+      <div class="container">
+        <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="./index.html">Modules</a> / <a href="./predictive-modeling.html">Machine Learning for Construction</a> / Workflow</p>
+
+        <section class="page-hero workflow-hero">
+          <p class="eyebrow">Module 4 workflow tool</p>
+          <h1 class="page-title">Machine learning workflow</h1>
+          <p class="page-intro">
+            This page turns the concrete strength notebook into a step-by-step workflow. It explains the regression problem, shows how the data moves through preprocessing and modeling, and lets you preview evaluation and testing before opening Colab.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://colab.research.google.com/github/ruoxinx/CMGT-40095-50095/blob/main/lectures/M04_ML_construction/Code/Lab_ML_Construction.ipynb">Open the original Colab</a>
+            <button class="button button-secondary" id="startGuide" type="button">Start guided mode</button>
+          </div>
+        </section>
+
+        <nav class="stepper-nav" aria-label="Workflow steps">
+          <button class="step-chip is-active" data-step-target="0" type="button">1. Overview</button>
+          <button class="step-chip" data-step-target="1" type="button">2. Data setup</button>
+          <button class="step-chip" data-step-target="2" type="button">3. Model training</button>
+          <button class="step-chip" data-step-target="3" type="button">4. Evaluation</button>
+          <button class="step-chip" data-step-target="4" type="button">5. Testing</button>
+        </nav>
+
+        <section class="section section-light step-panel is-active" data-step-panel="0">
+          <div class="section-heading">
+            <p class="eyebrow">Workflow stages</p>
+            <h2>Understand what machine learning is doing here</h2>
+            <p>
+              Module 4 is a supervised machine-learning workflow. We give the model many past concrete mixtures together with their real measured strength, and the model learns a pattern that can be used later on a new mix design.
+            </p>
+          </div>
+
+          <div class="grid grid-two overview-grid">
+            <article class="card">
+              <h3>What is machine learning here?</h3>
+              <p>
+                In this module, machine learning means using past data to learn a relationship between concrete ingredients, curing age, and final compressive strength.
+              </p>
+              <ul class="checklist">
+                <li>Input data: cement, slag, fly ash, water, superplasticizer, aggregates, and age</li>
+                <li>Target value: compressive strength in <code>MPa</code></li>
+                <li>Goal: estimate strength for a new recipe</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>What kind of problem is this?</h3>
+              <p>
+                This is a <strong>regression</strong> problem, not classification. The model predicts a number, not a category.
+              </p>
+              <ul class="checklist">
+                <li>Output is continuous: for example 32.4 MPa or 51.8 MPa</li>
+                <li>The model is trying to get close to the true measured strength</li>
+                <li>Later we judge the model by prediction error, not by accuracy</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="grid grid-three">
+            <article class="card">
+              <h3>What do we train?</h3>
+              <p>We train the model parameters. In linear regression these are the coefficients for each feature. In random forest or XGBoost, these are the learned split rules inside many decision trees.</p>
+            </article>
+            <article class="card">
+              <h3>What happens after training?</h3>
+              <p>After training, we have a fitted model plus evaluation results such as MAE, RMSE, and R2 that tell us how well it works on unseen data.</p>
+            </article>
+            <article class="card">
+              <h3>How do we predict later?</h3>
+              <p>We give the trained model a new concrete mix with the same input columns. The model uses what it learned during training to estimate the strength of that new mix.</p>
+            </article>
+          </div>
+
+          <div class="callout card">
+            <h3>Real dataset used in the notebook</h3>
+            <ul class="checklist">
+              <li>The notebook uses the UCI concrete compressive strength dataset with <strong>1030 rows</strong>.</li>
+              <li>There are <strong>8 input features</strong> and <strong>1 target</strong>.</li>
+              <li>Strength ranges from about <strong>2.33 to 82.60 MPa</strong>.</li>
+              <li>Average strength is about <strong>35.82 MPa</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="ml-diagram" aria-label="Machine learning process">
+            <article class="card ml-node">
+              <p class="workflow-step-number">1</p>
+              <h3>Past data</h3>
+              <p>Concrete recipes plus real measured strength values.</p>
+            </article>
+            <article class="card ml-node">
+              <p class="workflow-step-number">2</p>
+              <h3>Training</h3>
+              <p>The model learns patterns that connect inputs to strength.</p>
+            </article>
+            <article class="card ml-node">
+              <p class="workflow-step-number">3</p>
+              <h3>Fitted model</h3>
+              <p>We keep the learned model after training is finished.</p>
+            </article>
+            <article class="card ml-node">
+              <p class="workflow-step-number">4</p>
+              <h3>New prediction</h3>
+              <p>A new mix goes in and the model returns predicted MPa.</p>
+            </article>
+          </div>
+
+          <div class="workflow-strip" aria-label="Machine learning workflow">
+            <article class="card workflow-step">
+              <p class="workflow-step-number">1</p>
+              <h3>Load data</h3>
+              <p>Read the CSV and inspect the columns, summary statistics, and correlations.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">2</p>
+              <h3>Prepare features</h3>
+              <p>Split the target from the predictors and create train and test sets.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">3</p>
+              <h3>Train models</h3>
+              <p>Fit baseline and stronger regressors such as linear regression and random forest.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">4</p>
+              <h3>Evaluate</h3>
+              <p>Compare MAE, RMSE, and R2 to see which model generalizes better.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">5</p>
+              <h3>Test a new mix</h3>
+              <p>Enter a new recipe and preview how the workflow produces a strength estimate.</p>
+            </article>
+          </div>
+
+          <div class="callout card">
+            <h3>What the notebook is teaching</h3>
+            <ul class="checklist">
+              <li>How tabular construction data becomes a machine-learning dataset.</li>
+              <li>Why train/test splitting comes before scaling and tuning.</li>
+              <li>How simple and advanced models can be compared fairly.</li>
+              <li>How evaluation metrics translate into model quality.</li>
+            </ul>
+          </div>
+
+          <div class="step-actions">
+            <button class="button button-primary step-next" type="button" data-direction="next">Next step</button>
+          </div>
+        </section>
+
+        <section class="section section-muted step-panel" data-step-panel="1">
+          <div class="section-heading">
+            <p class="eyebrow">Data setup</p>
+            <h2>Prepare the dataset and workflow settings</h2>
+            <p>
+              This step mirrors the early notebook cells: load the CSV, inspect the data, separate features from the target, and choose how the train/test split and preprocessing should work.
+            </p>
+          </div>
+
+          <div class="builder-layout">
+            <article class="card builder-panel">
+              <h3>Workflow settings</h3>
+              <div class="builder-grid">
+                <label>
+                  Test split
+                  <input id="testSize" type="range" min="0.15" max="0.35" step="0.05" value="0.2" />
+                  <span class="field-help"><span id="testSizeValue">20</span>% of the dataset reserved for testing</span>
+                </label>
+                <label>
+                  Random state
+                  <input id="randomState" type="number" min="0" max="999" step="1" value="42" />
+                  <span class="field-help">Used for a reproducible split</span>
+                </label>
+                <label>
+                  Feature scaling
+                  <select id="scaleData">
+                    <option value="yes" selected>Use StandardScaler</option>
+                    <option value="no">Skip scaling</option>
+                  </select>
+                  <span class="field-help">Scaling helps linear models and keeps the workflow explicit</span>
+                </label>
+                <label>
+                  Advanced model
+                  <select id="advancedModel">
+                    <option value="rf" selected>Random Forest</option>
+                    <option value="xgb">XGBoost</option>
+                  </select>
+                  <span class="field-help">Tree models usually handle nonlinear relationships better</span>
+                </label>
+                <label>
+                  Hyperparameter tuning
+                  <select id="runTuning">
+                    <option value="yes" selected>Include RandomizedSearchCV</option>
+                    <option value="no">Skip tuning</option>
+                  </select>
+                  <span class="field-help">Adds a tuning stage after the first model comparison</span>
+                </label>
+              </div>
+
+              <div class="callout card">
+                <h3>What happens in this step</h3>
+                <ul class="checklist">
+                  <li>Read <code>Concrete_Data.csv</code> into a dataframe.</li>
+                  <li>Check rows, columns, summary statistics, and correlations.</li>
+                  <li>Separate the target column from the eight input variables.</li>
+                  <li>Create train and test sets before scaling to avoid leakage.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card builder-panel">
+              <h3>Example rows from the real dataset</h3>
+              <div class="table-scroll">
+                <table class="workflow-table">
+                  <thead>
+                    <tr>
+                      <th>Cement</th>
+                      <th>Slag</th>
+                      <th>Fly Ash</th>
+                      <th>Water</th>
+                      <th>Superplasticizer</th>
+                      <th>Age</th>
+                      <th>Strength</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>540.0</td>
+                      <td>0.0</td>
+                      <td>0.0</td>
+                      <td>162.0</td>
+                      <td>2.5</td>
+                      <td>28</td>
+                      <td>79.99</td>
+                    </tr>
+                    <tr>
+                      <td>540.0</td>
+                      <td>0.0</td>
+                      <td>0.0</td>
+                      <td>162.0</td>
+                      <td>2.5</td>
+                      <td>28</td>
+                      <td>61.89</td>
+                    </tr>
+                    <tr>
+                      <td>332.5</td>
+                      <td>142.5</td>
+                      <td>0.0</td>
+                      <td>228.0</td>
+                      <td>0.0</td>
+                      <td>270</td>
+                      <td>40.27</td>
+                    </tr>
+                    <tr>
+                      <td>198.6</td>
+                      <td>132.4</td>
+                      <td>0.0</td>
+                      <td>192.0</td>
+                      <td>0.0</td>
+                      <td>360</td>
+                      <td>44.30</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="grid grid-two">
+                <article class="card metric-card">
+                  <h3>Feature columns</h3>
+                  <p>Cement, slag, fly ash, water, superplasticizer, coarse aggregate, fine aggregate, and age.</p>
+                </article>
+                <article class="card metric-card">
+                  <h3>Target column</h3>
+                  <p><code>Concrete compressive strength(MPa, megapascals)</code></p>
+                </article>
+              </div>
+
+              <div class="ml-split-visual" aria-label="Train test split">
+                <div class="ml-split-bar">
+                  <div class="ml-split-train" style="width: 80%">
+                    <span>Train set</span>
+                    <strong id="trainSplitValue">80%</strong>
+                  </div>
+                  <div class="ml-split-test" style="width: 20%">
+                    <span>Test set</span>
+                    <strong id="testSplitVisualValue">20%</strong>
+                  </div>
+                </div>
+                <p class="field-help">Training rows teach the model. Test rows stay unseen until evaluation.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="output-stack">
+            <details class="output-block" open>
+              <summary>1. Import libraries</summary>
+              <p class="output-caption">Start with pandas, plotting libraries, and the scikit-learn tools used throughout the workflow.</p>
+              <pre><code id="importsCode"></code></pre>
+            </details>
+            <details class="output-block">
+              <summary>2. Load and inspect the dataset</summary>
+              <p class="output-caption">These cells load the CSV, preview rows, and inspect summary statistics and correlations.</p>
+              <pre><code id="loadCode"></code></pre>
+            </details>
+            <details class="output-block">
+              <summary>3. Split features and target</summary>
+              <p class="output-caption">This is where the workflow creates the training and testing partitions.</p>
+              <pre><code id="splitCode"></code></pre>
+            </details>
+            <details class="output-block">
+              <summary>4. Optional feature scaling</summary>
+              <p class="output-caption">Scaling is shown after the split so the notebook avoids data leakage.</p>
+              <pre><code id="scaleCode"></code></pre>
+            </details>
+          </div>
+
+          <div class="step-actions">
+            <button class="button button-secondary step-prev" type="button" data-direction="prev">Back</button>
+            <button class="button button-primary step-next" type="button" data-direction="next">Next step</button>
+          </div>
+        </section>
+
+        <section class="section section-light step-panel" data-step-panel="2">
+          <div class="section-heading">
+            <p class="eyebrow">Model training</p>
+            <h2>See what training means in machine learning</h2>
+            <p>
+              Training means the model looks at many known examples and adjusts its internal parameters so its predictions get closer to the real strength values. The notebook first fits a simple baseline, then a stronger tree-based model, and optionally a tuned version.
+            </p>
+          </div>
+
+          <div class="grid grid-three">
+            <article class="card">
+              <h3>Linear Regression</h3>
+              <p>A baseline model that learns a weighted linear relationship between the inputs and strength.</p>
+              <ul class="checklist">
+                <li>Simple and interpretable</li>
+                <li>Good benchmark model</li>
+                <li>May miss nonlinear behavior</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Random Forest</h3>
+              <p>An ensemble of decision trees that usually performs better on structured data with nonlinear patterns.</p>
+              <ul class="checklist">
+                <li>Captures interactions between variables</li>
+                <li>Provides feature importance</li>
+                <li>Strong fit for tabular data</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>XGBoost</h3>
+              <p>An optional boosted-tree model that often performs very well, but may require extra installation and tuning.</p>
+              <ul class="checklist">
+                <li>Optional in the notebook</li>
+                <li>Often improves accuracy</li>
+                <li>Adds complexity</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="callout card">
+            <h3>What gets trained in each model?</h3>
+            <ul class="checklist">
+              <li><strong>Linear Regression:</strong> learns one coefficient for each input feature and an intercept.</li>
+              <li><strong>Random Forest:</strong> learns many decision trees and combines their outputs.</li>
+              <li><strong>XGBoost:</strong> learns boosted trees stage by stage to reduce error.</li>
+              <li>In all cases, training uses the training set where both the inputs and the true strength values are known.</li>
+            </ul>
+          </div>
+
+          <div class="workflow-strip training-strip" aria-label="Training process">
+            <article class="card workflow-step">
+              <p class="workflow-step-number">1</p>
+              <h3>Read training rows</h3>
+              <p>The model sees many concrete recipes and their known measured strength.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">2</p>
+              <h3>Learn patterns</h3>
+              <p>It adjusts coefficients or tree rules to better connect inputs to strength.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">3</p>
+              <h3>Reduce error</h3>
+              <p>The model keeps improving until predictions are closer to the known target values.</p>
+            </article>
+            <article class="card workflow-step">
+              <p class="workflow-step-number">4</p>
+              <h3>Keep the fitted model</h3>
+              <p>After training, we keep the learned model and use it later for evaluation and prediction.</p>
+            </article>
+          </div>
+
+          <div class="grid grid-three overview-grid">
+            <article class="card">
+              <h3>What we have after training</h3>
+              <p>A fitted model object, prediction errors on the test set, and plots or tables that help compare models.</p>
+            </article>
+            <article class="card">
+              <h3>What we do not have</h3>
+              <p>We do not have a perfect formula for every possible mix. The model only learns from the patterns present in the training data.</p>
+            </article>
+            <article class="card">
+              <h3>Why testing matters</h3>
+              <p>Testing on unseen mixes helps us check whether the learned model generalizes instead of only memorizing the training set.</p>
+            </article>
+          </div>
+
+          <div class="builder-layout">
+            <article class="card builder-panel">
+              <h3>Training code</h3>
+              <div class="output-stack">
+                <details class="output-block" open>
+                  <summary>5. Train baseline model</summary>
+                  <p class="output-caption">The notebook starts with linear regression so every later result can be compared against a simple baseline.</p>
+                  <pre><code id="baselineCode"></code></pre>
+                </details>
+                <details class="output-block">
+                  <summary>6. Train advanced model</summary>
+                  <p class="output-caption">This block switches to the stronger tree-based model selected above.</p>
+                  <pre><code id="advancedCode"></code></pre>
+                </details>
+                <details class="output-block">
+                  <summary>7. Optional hyperparameter tuning</summary>
+                  <p class="output-caption">RandomizedSearchCV searches over a small parameter space to improve the tree model.</p>
+                  <pre><code id="tuningCode"></code></pre>
+                </details>
+              </div>
+            </article>
+
+            <article class="card builder-panel">
+              <h3>Feature importance preview</h3>
+              <p class="field-help">This visual mimics the notebook idea that tree models can rank which variables matter most.</p>
+              <div class="feature-bars" id="featureBars"></div>
+              <div class="callout card">
+                <h3>How to read this</h3>
+                <ul class="checklist">
+                  <li>Higher bars mean the model relied more on that variable.</li>
+                  <li>Age and cement often matter strongly for strength prediction.</li>
+                  <li>Feature importance is most meaningful for tree-based models.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="step-actions">
+            <button class="button button-secondary step-prev" type="button" data-direction="prev">Back</button>
+            <button class="button button-primary step-next" type="button" data-direction="next">Next step</button>
+          </div>
+        </section>
+
+        <section class="section section-muted step-panel" data-step-panel="3">
+          <div class="section-heading">
+            <p class="eyebrow">Evaluation</p>
+            <h2>Compare model quality with meaningful regression metrics</h2>
+            <p>
+              Regression evaluation is different from classification. Instead of accuracy, this module uses <strong>MAE</strong>, <strong>RMSE</strong>, and <strong>R2</strong> to compare how close predictions are to real measured strength values.
+            </p>
+          </div>
+
+          <div class="metric-grid" id="metricGrid"></div>
+
+          <div class="builder-layout">
+            <article class="card builder-panel">
+              <h3>Model comparison chart</h3>
+              <canvas id="comparisonChart" class="comparison-chart" width="680" height="320" aria-label="Model comparison chart"></canvas>
+            </article>
+            <article class="card builder-panel">
+              <h3>What the metrics mean</h3>
+              <ul class="checklist">
+                <li><strong>MAE</strong> is the average absolute prediction error in MPa.</li>
+                <li><strong>RMSE</strong> penalizes larger mistakes more heavily than MAE.</li>
+                <li><strong>R2</strong> measures how much variance in strength the model explains.</li>
+              </ul>
+              <div class="callout card">
+                <h3>How to interpret the chart</h3>
+                <ul class="checklist">
+                  <li>Lower MAE and RMSE are better.</li>
+                  <li>Higher R2 is better.</li>
+                  <li>A better model is not always the most complex one, but it often captures more nonlinear patterns.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="output-stack">
+            <details class="output-block" open>
+              <summary>8. Evaluate the models</summary>
+              <p class="output-caption">These cells calculate MAE, RMSE, and R2 on the held-out test set.</p>
+              <pre><code id="evaluationCode"></code></pre>
+            </details>
+            <details class="output-block">
+              <summary>9. Summarize the results</summary>
+              <p class="output-caption">The notebook compares all trained models in one compact results table.</p>
+              <pre><code id="summaryCode"></code></pre>
+            </details>
+          </div>
+
+          <div class="step-actions">
+            <button class="button button-secondary step-prev" type="button" data-direction="prev">Back</button>
+            <button class="button button-primary step-next" type="button" data-direction="next">Next step</button>
+          </div>
+        </section>
+
+        <section class="section section-light step-panel" data-step-panel="4">
+          <div class="section-heading">
+            <p class="eyebrow">Testing</p>
+            <h2>Test the workflow on a new concrete mix</h2>
+            <p>
+              Prediction happens after training. We enter a new concrete mix with the same input columns, and the trained model estimates its compressive strength. The browser preview below is a teaching demo, while the real notebook prediction comes from the trained scikit-learn model in Colab.
+            </p>
+          </div>
+
+          <div class="builder-layout">
+            <article class="card builder-panel">
+              <h3>New mix design</h3>
+              <div class="recipe-grid">
+                <label>Cement (kg/m3)<input id="cementInput" type="number" value="320" min="0" max="600" step="0.1" /></label>
+                <label>Slag (kg/m3)<input id="slagInput" type="number" value="95" min="0" max="400" step="0.1" /></label>
+                <label>Fly ash (kg/m3)<input id="flyAshInput" type="number" value="45" min="0" max="300" step="0.1" /></label>
+                <label>Water (kg/m3)<input id="waterInput" type="number" value="185" min="0" max="300" step="0.1" /></label>
+                <label>Superplasticizer (kg/m3)<input id="superInput" type="number" value="6.5" min="0" max="50" step="0.1" /></label>
+                <label>Coarse aggregate (kg/m3)<input id="coarseInput" type="number" value="980" min="0" max="1300" step="0.1" /></label>
+                <label>Fine aggregate (kg/m3)<input id="fineInput" type="number" value="760" min="0" max="1100" step="0.1" /></label>
+                <label>Age (days)<input id="ageInput" type="number" value="28" min="1" max="365" step="1" /></label>
+              </div>
+              <div class="step-actions step-actions-inline">
+                <button class="button button-primary" id="runPrediction" type="button">Preview prediction</button>
+              </div>
+              <div class="callout card">
+                <h3>Demo reminder</h3>
+                <ul class="checklist">
+                  <li><strong>Demo only:</strong> the browser estimate is for understanding the workflow.</li>
+                  <li>The real prediction in the notebook comes from the model fitted on the training data.</li>
+                  <li>The purpose here is to show how a new mix moves into the testing stage.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card builder-panel">
+              <h3>Prediction preview</h3>
+              <p id="predictionSummary">Choose a mix and click "Preview prediction" to see how the workflow would report model outputs.</p>
+              <div class="prediction-flow">
+                <div class="prediction-flow-step">New concrete mix</div>
+                <div class="prediction-flow-step">Apply same input columns</div>
+                <div class="prediction-flow-step">Run trained model</div>
+                <div class="prediction-flow-step">Get predicted MPa</div>
+              </div>
+              <div class="prediction-grid" id="predictionGrid"></div>
+            </article>
+          </div>
+
+          <div class="output-stack">
+            <details class="output-block" open>
+              <summary>10. Predict on new data</summary>
+              <p class="output-caption">This final code block shows how the trained model is used on unseen concrete recipes.</p>
+              <pre><code id="predictionCode"></code></pre>
+            </details>
+          </div>
+
+          <div class="step-actions">
+            <button class="button button-secondary step-prev" type="button" data-direction="prev">Back</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-layout">
+        <div>
+          <p class="footer-title">AI in Construction</p>
+          <p>Course materials, Colab-ready notebooks, assignments, datasets, and project examples.</p>
+        </div>
+
+        <div>
+          <p class="footer-title">Quick links</p>
+          <ul class="footer-links">
+            <li><a href="./index.html">Module hub</a></li>
+            <li><a href="../guidelines.html">Notebook guide</a></li>
+            <li><a href="../license.html">License</a></li>
+            <li><a href="https://github.com/ruoxinx/CMGT-40095-50095">Repository</a></li>
+            <li><a href="mailto:rxiong3@kent.edu">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const stepChips = Array.from(document.querySelectorAll(".step-chip"));
+      const stepPanels = Array.from(document.querySelectorAll(".step-panel"));
+      const nextButtons = Array.from(document.querySelectorAll(".step-next"));
+      const prevButtons = Array.from(document.querySelectorAll(".step-prev"));
+      const startGuide = document.getElementById("startGuide");
+
+      const testSize = document.getElementById("testSize");
+      const testSizeValue = document.getElementById("testSizeValue");
+      const randomState = document.getElementById("randomState");
+      const scaleData = document.getElementById("scaleData");
+      const advancedModel = document.getElementById("advancedModel");
+      const runTuning = document.getElementById("runTuning");
+      const trainSplitValue = document.getElementById("trainSplitValue");
+      const testSplitVisualValue = document.getElementById("testSplitVisualValue");
+
+      const importsCode = document.getElementById("importsCode");
+      const loadCode = document.getElementById("loadCode");
+      const splitCode = document.getElementById("splitCode");
+      const scaleCode = document.getElementById("scaleCode");
+      const baselineCode = document.getElementById("baselineCode");
+      const advancedCode = document.getElementById("advancedCode");
+      const tuningCode = document.getElementById("tuningCode");
+      const evaluationCode = document.getElementById("evaluationCode");
+      const summaryCode = document.getElementById("summaryCode");
+      const predictionCode = document.getElementById("predictionCode");
+
+      const featureBars = document.getElementById("featureBars");
+      const metricGrid = document.getElementById("metricGrid");
+      const comparisonChart = document.getElementById("comparisonChart");
+
+      const cementInput = document.getElementById("cementInput");
+      const slagInput = document.getElementById("slagInput");
+      const flyAshInput = document.getElementById("flyAshInput");
+      const waterInput = document.getElementById("waterInput");
+      const superInput = document.getElementById("superInput");
+      const coarseInput = document.getElementById("coarseInput");
+      const fineInput = document.getElementById("fineInput");
+      const ageInput = document.getElementById("ageInput");
+      const runPrediction = document.getElementById("runPrediction");
+      const predictionSummary = document.getElementById("predictionSummary");
+      const predictionGrid = document.getElementById("predictionGrid");
+
+      function setActiveStep(stepIndex) {
+        stepChips.forEach((chip, index) => chip.classList.toggle("is-active", index === stepIndex));
+        stepPanels.forEach((panel, index) => panel.classList.toggle("is-active", index === stepIndex));
+        stepPanels[stepIndex].scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      stepChips.forEach((chip) => {
+        chip.addEventListener("click", () => setActiveStep(Number(chip.dataset.stepTarget)));
+      });
+
+      nextButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const current = stepPanels.findIndex((panel) => panel.classList.contains("is-active"));
+          setActiveStep(Math.min(stepPanels.length - 1, current + 1));
+        });
+      });
+
+      prevButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const current = stepPanels.findIndex((panel) => panel.classList.contains("is-active"));
+          setActiveStep(Math.max(0, current - 1));
+        });
+      });
+
+      startGuide.addEventListener("click", () => setActiveStep(1));
+
+      function getSettings() {
+        return {
+          testSize: Number(testSize.value),
+          randomState: Number(randomState.value) || 42,
+          scaleData: scaleData.value === "yes",
+          advancedModel: advancedModel.value,
+          runTuning: runTuning.value === "yes",
+        };
+      }
+
+      function formatMetric(value, digits = 2) {
+        return Number(value).toFixed(digits);
+      }
+
+      function buildModelMetrics(settings) {
+        const splitAdjustment = (settings.testSize - 0.2) * 4.5;
+        const scalingBoost = settings.scaleData ? 0.25 : -0.15;
+        const metrics = [
+          {
+            name: "Linear Regression",
+            mae: 7.25 + splitAdjustment - scalingBoost * 0.6,
+            rmse: 9.55 + splitAdjustment - scalingBoost * 0.45,
+            r2: 0.74 - splitAdjustment * 0.01 + scalingBoost * 0.008,
+          },
+          {
+            name: "Random Forest",
+            mae: 5.42 + splitAdjustment * 0.8,
+            rmse: 7.18 + splitAdjustment * 0.85,
+            r2: 0.86 - splitAdjustment * 0.008,
+          },
+        ];
+
+        if (settings.advancedModel === "xgb") {
+          metrics.push({
+            name: "XGBoost",
+            mae: 4.88 + splitAdjustment * 0.75,
+            rmse: 6.46 + splitAdjustment * 0.7,
+            r2: 0.89 - splitAdjustment * 0.007,
+          });
+        }
+
+        if (settings.runTuning) {
+          metrics.push({
+            name: settings.advancedModel === "xgb" ? "Tuned XGBoost" : "Tuned Random Forest",
+            mae: settings.advancedModel === "xgb" ? 4.52 + splitAdjustment * 0.7 : 4.94 + splitAdjustment * 0.72,
+            rmse: settings.advancedModel === "xgb" ? 6.08 + splitAdjustment * 0.65 : 6.55 + splitAdjustment * 0.7,
+            r2: settings.advancedModel === "xgb" ? 0.91 - splitAdjustment * 0.006 : 0.89 - splitAdjustment * 0.006,
+          });
+        }
+
+        return metrics.map((metric) => ({
+          ...metric,
+          mae: Math.max(3.2, metric.mae),
+          rmse: Math.max(4.5, metric.rmse),
+          r2: Math.min(0.95, Math.max(0.68, metric.r2)),
+        }));
+      }
+
+      function updateGeneratedWorkflow() {
+        const settings = getSettings();
+        const testPercent = Math.round(settings.testSize * 100);
+        const modelClass = settings.advancedModel === "xgb" ? "XGBRegressor" : "RandomForestRegressor";
+        const modelInit =
+          settings.advancedModel === "xgb"
+            ? "xgb_reg = XGBRegressor(n_estimators=300, learning_rate=0.05, max_depth=4, random_state=42)"
+            : "rf_reg = RandomForestRegressor(n_estimators=100, random_state=42)";
+        const modelVar = settings.advancedModel === "xgb" ? "xgb_reg" : "rf_reg";
+
+        testSizeValue.textContent = String(testPercent);
+        trainSplitValue.textContent = `${100 - testPercent}%`;
+        testSplitVisualValue.textContent = `${testPercent}%`;
+
+        importsCode.textContent = `import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.model_selection import train_test_split, cross_val_score, RandomizedSearchCV
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+${settings.advancedModel === "xgb" ? "from xgboost import XGBRegressor" : ""}`.trim();
+
+        loadCode.textContent = `df = pd.read_csv("Concrete_Data.csv")
+print(df.head())
+print(df.info())
+display(df.describe())
+
+corr = df.corr()
+plt.figure(figsize=(10, 8))
+sns.heatmap(corr, annot=True, cmap="Blues")
+plt.title("Concrete Dataset Correlation Heatmap")
+plt.show()`;
+
+        splitCode.textContent = `target_col = "Concrete compressive strength(MPa, megapascals) "
+
+X = df.drop(columns=[target_col])
+y = df[target_col]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=${settings.testSize.toFixed(2)},
+    random_state=${settings.randomState}
+)
+
+print(f"Training rows: {len(X_train)}")
+print(f"Testing rows: {len(X_test)}")`;
+
+        scaleCode.textContent = settings.scaleData
+          ? `scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+print("Features scaled after splitting to avoid leakage.")`
+          : `X_train_scaled = X_train.copy()
+X_test_scaled = X_test.copy()
+
+print("Scaling skipped for this version of the workflow.")`;
+
+        baselineCode.textContent = `lin_reg = LinearRegression()
+lin_reg.fit(X_train_scaled, y_train)
+
+y_pred_lr = lin_reg.predict(X_test_scaled)
+
+mae_lr = mean_absolute_error(y_test, y_pred_lr)
+rmse_lr = mean_squared_error(y_test, y_pred_lr, squared=False)
+r2_lr = r2_score(y_test, y_pred_lr)
+
+print("Linear Regression Performance:")
+print(f"  MAE : {mae_lr:.3f}")
+print(f"  RMSE: {rmse_lr:.3f}")
+print(f"  R^2 : {r2_lr:.3f}")`;
+
+        advancedCode.textContent = `${modelInit}
+${modelVar}.fit(X_train_scaled, y_train)
+
+y_pred_adv = ${modelVar}.predict(X_test_scaled)
+
+mae_adv = mean_absolute_error(y_test, y_pred_adv)
+rmse_adv = mean_squared_error(y_test, y_pred_adv, squared=False)
+r2_adv = r2_score(y_test, y_pred_adv)
+
+print("${modelClass} Performance:")
+print(f"  MAE : {mae_adv:.3f}")
+print(f"  RMSE: {rmse_adv:.3f}")
+print(f"  R^2 : {r2_adv:.3f}")`;
+
+        tuningCode.textContent = settings.runTuning
+          ? `param_dist = {
+    "n_estimators": [100, 200, 300, 500],
+    "max_depth": [None, 5, 10, 20],
+    "min_samples_split": [2, 5, 10]
+}
+
+search = RandomizedSearchCV(
+    estimator=${settings.advancedModel === "xgb" ? "XGBRegressor(random_state=42)" : "RandomForestRegressor(random_state=42)"},
+    param_distributions=param_dist,
+    n_iter=8,
+    cv=3,
+    scoring="neg_root_mean_squared_error",
+    random_state=${settings.randomState}
+)
+
+search.fit(X_train_scaled, y_train)
+best_model = search.best_estimator_
+print(search.best_params_)`
+          : `# Hyperparameter tuning skipped in this workflow configuration.
+# You can add RandomizedSearchCV later if you want to improve the advanced model.`;
+
+        evaluationCode.textContent = `results = {
+    "LinearRegression": {"MAE": mae_lr, "RMSE": rmse_lr, "R2": r2_lr},
+    "${settings.advancedModel === "xgb" ? "XGBoost" : "RandomForest"}": {"MAE": mae_adv, "RMSE": rmse_adv, "R2": r2_adv}
+}
+${settings.runTuning ? `results["TunedModel"] = {
+    "MAE": mean_absolute_error(y_test, best_model.predict(X_test_scaled)),
+    "RMSE": mean_squared_error(y_test, best_model.predict(X_test_scaled), squared=False),
+    "R2": r2_score(y_test, best_model.predict(X_test_scaled))
+}` : ""}`;
+
+        summaryCode.textContent = `results_df = pd.DataFrame(results).T
+print(results_df)
+
+results_df[["MAE", "RMSE"]].plot(kind="bar", figsize=(8, 4), color=["#1d4f91", "#f0a95b"])
+plt.title("Lower is better for MAE and RMSE")
+plt.ylabel("Error (MPa)")
+plt.xticks(rotation=0)
+plt.show()
+
+results_df["R2"].plot(kind="bar", figsize=(8, 4), color="#7eb089")
+plt.title("Higher is better for R2")
+plt.ylabel("R2")
+plt.xticks(rotation=0)
+plt.show()`;
+
+        predictionCode.textContent = `new_mix = pd.DataFrame([
+    {
+        "Cement (component 1)(kg in a m^3 mixture)": ${Number(cementInput.value).toFixed(1)},
+        "Blast Furnace Slag (component 2)(kg in a m^3 mixture)": ${Number(slagInput.value).toFixed(1)},
+        "Fly Ash (component 3)(kg in a m^3 mixture)": ${Number(flyAshInput.value).toFixed(1)},
+        "Water  (component 4)(kg in a m^3 mixture)": ${Number(waterInput.value).toFixed(1)},
+        "Superplasticizer (component 5)(kg in a m^3 mixture)": ${Number(superInput.value).toFixed(1)},
+        "Coarse Aggregate  (component 6)(kg in a m^3 mixture)": ${Number(coarseInput.value).toFixed(1)},
+        "Fine Aggregate (component 7)(kg in a m^3 mixture)": ${Number(fineInput.value).toFixed(1)},
+        "Age (day)": ${Number(ageInput.value).toFixed(0)}
+    }
+])
+
+new_mix_scaled = scaler.transform(new_mix) if ${settings.scaleData ? "True" : "False"} else new_mix
+predicted_strength = ${settings.runTuning ? "best_model" : modelVar}.predict(new_mix_scaled)
+print(f"Predicted compressive strength: {predicted_strength[0]:.2f} MPa")`;
+
+        updateMetrics();
+      }
+
+      function renderFeatureBars() {
+        const bars = [
+          ["Age", 0.92],
+          ["Cement", 0.84],
+          ["Water", 0.68],
+          ["Blast Furnace Slag", 0.49],
+          ["Superplasticizer", 0.43],
+          ["Fly Ash", 0.37],
+          ["Fine Aggregate", 0.21],
+          ["Coarse Aggregate", 0.18],
+        ];
+
+        featureBars.innerHTML = bars.map(([label, value]) => `
+          <div class="feature-row">
+            <div class="feature-labels">
+              <span>${label}</span>
+              <span>${value.toFixed(2)}</span>
+            </div>
+            <div class="feature-track"><div class="feature-fill" style="width: ${value * 100}%"></div></div>
+          </div>
+        `).join("");
+      }
+
+      function drawComparisonChart(metrics) {
+        const context = comparisonChart.getContext("2d");
+        const width = comparisonChart.width;
+        const height = comparisonChart.height;
+        const margin = { top: 28, right: 24, bottom: 58, left: 48 };
+        const plotWidth = width - margin.left - margin.right;
+        const plotHeight = height - margin.top - margin.bottom;
+        const groupWidth = plotWidth / metrics.length;
+        const maxRmse = Math.max(...metrics.map((metric) => metric.rmse)) * 1.2;
+
+        context.clearRect(0, 0, width, height);
+        context.fillStyle = "#f7f9fc";
+        context.fillRect(0, 0, width, height);
+
+        context.strokeStyle = "#d5deeb";
+        for (let i = 0; i <= 5; i += 1) {
+          const y = margin.top + (plotHeight / 5) * i;
+          context.beginPath();
+          context.moveTo(margin.left, y);
+          context.lineTo(width - margin.right, y);
+          context.stroke();
+        }
+
+        context.fillStyle = "#62748a";
+        context.font = "12px sans-serif";
+        for (let i = 0; i <= 5; i += 1) {
+          const value = maxRmse - (maxRmse / 5) * i;
+          context.fillText(value.toFixed(1), 8, margin.top + (plotHeight / 5) * i + 4);
+        }
+
+        metrics.forEach((metric, index) => {
+          const xBase = margin.left + groupWidth * index + groupWidth * 0.18;
+          const barWidth = groupWidth * 0.24;
+          const maeHeight = (metric.mae / maxRmse) * plotHeight;
+          const rmseHeight = (metric.rmse / maxRmse) * plotHeight;
+
+          context.fillStyle = "#1d4f91";
+          context.fillRect(xBase, margin.top + plotHeight - maeHeight, barWidth, maeHeight);
+          context.fillStyle = "#f0a95b";
+          context.fillRect(xBase + barWidth + 12, margin.top + plotHeight - rmseHeight, barWidth, rmseHeight);
+
+          context.fillStyle = "#16213a";
+          context.fillText(metric.name, xBase - 2, height - 20, groupWidth * 0.75);
+        });
+
+        context.fillStyle = "#1d4f91";
+        context.fillRect(width - 170, 14, 14, 14);
+        context.fillStyle = "#16213a";
+        context.fillText("MAE", width - 148, 25);
+        context.fillStyle = "#f0a95b";
+        context.fillRect(width - 92, 14, 14, 14);
+        context.fillStyle = "#16213a";
+        context.fillText("RMSE", width - 70, 25);
+      }
+
+      function updateMetrics() {
+        const metrics = buildModelMetrics(getSettings());
+        metricGrid.innerHTML = metrics.map((metric) => `
+          <article class="card metric-card">
+            <h3>${metric.name}</h3>
+            <p><strong>MAE:</strong> ${formatMetric(metric.mae)} MPa</p>
+            <p><strong>RMSE:</strong> ${formatMetric(metric.rmse)} MPa</p>
+            <p><strong>R2:</strong> ${formatMetric(metric.r2)}</p>
+          </article>
+        `).join("");
+        drawComparisonChart(metrics);
+      }
+
+      function calculateDemoPrediction() {
+        const cement = Number(cementInput.value) || 0;
+        const slag = Number(slagInput.value) || 0;
+        const flyAsh = Number(flyAshInput.value) || 0;
+        const water = Number(waterInput.value) || 0;
+        const superplasticizer = Number(superInput.value) || 0;
+        const coarse = Number(coarseInput.value) || 0;
+        const fine = Number(fineInput.value) || 0;
+        const age = Math.max(1, Number(ageInput.value) || 1);
+
+        const binderEffect = cement * 0.092 + slag * 0.034 + flyAsh * 0.026;
+        const waterPenalty = water * 0.071;
+        const admixtureEffect = superplasticizer * 0.43;
+        const aggregateEffect = coarse * 0.004 + fine * 0.003;
+        const ageEffect = Math.log(age + 1) * 6.1;
+        const baseline = binderEffect - waterPenalty + admixtureEffect + aggregateEffect + ageEffect - 18;
+        const clipped = Math.min(82.6, Math.max(2.33, baseline));
+
+        return {
+          linear: clipped - 2.1,
+          forest: clipped + 1.4,
+          tuned: clipped + 2.3,
+        };
+      }
+
+      function updatePredictionPreview() {
+        const prediction = calculateDemoPrediction();
+        const settings = getSettings();
+        const models = [
+          ["Linear Regression", prediction.linear],
+          [settings.advancedModel === "xgb" ? "XGBoost" : "Random Forest", prediction.forest],
+        ];
+
+        if (settings.runTuning) {
+          models.push([settings.advancedModel === "xgb" ? "Tuned XGBoost" : "Tuned Random Forest", prediction.tuned]);
+        }
+
+        predictionSummary.textContent =
+          "This preview shows how the testing step reports model outputs on a new concrete mix. The real notebook value comes from the fitted scikit-learn model.";
+
+        predictionGrid.innerHTML = models.map(([label, value]) => `
+          <article class="card prediction-card">
+            <h3>${label}</h3>
+            <p class="prediction-value">${Math.min(82.6, Math.max(2.33, value)).toFixed(2)} MPa</p>
+            <p class="field-help">Predicted compressive strength for the new mix</p>
+          </article>
+        `).join("");
+
+        updateGeneratedWorkflow();
+      }
+
+      [testSize, randomState, scaleData, advancedModel, runTuning].forEach((element) => {
+        element.addEventListener("input", updateGeneratedWorkflow);
+        element.addEventListener("change", updateGeneratedWorkflow);
+      });
+
+      [cementInput, slagInput, flyAshInput, waterInput, superInput, coarseInput, fineInput, ageInput].forEach((element) => {
+        element.addEventListener("input", updateGeneratedWorkflow);
+      });
+
+      runPrediction.addEventListener("click", updatePredictionPreview);
+
+      renderFeatureBars();
+      updateGeneratedWorkflow();
+      updatePredictionPreview();
+    </script>
+  </body>
+</html>
+
